@@ -68,20 +68,20 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
 
 ## Tabla de Contenidos
 
-* [Código Fuente del Layout](#source-code-layout)
-* [Sintaxis](#syntax)
-* [Nombres](#naming)
-* [Comentarios](#comments)
-    * [Apuntes de Comentarios](#comment-annotations)
-* [Clases](#classes--modules)
-* [Excepciones](#exceptions)
-* [Colecciones](#collections)
+* [Código Fuente del Layout](#c%C3%B3digo-fuente-del-layout)
+* [Sintaxis](#sintaxis)
+* [Nombres](#nombres)
+* [Comentarios](#comentarios)
+    * [Apuntes de Comentarios](#apuntes-de-comentarios)
+* [Clases](#clases-y-m%C3%B3dulos)
+* [Excepciones](#excepciones)
+* [Colecciones](#colecciones)
 * [Strings](#strings)
-* [Expresiones Regulares](#regular-expressions)
-* [Porcentajes Literales](#percent-literals)
-* [Metaprogramación](#metaprogramming)
-* [Varios](#misc)
-* [Herramientas](#tools)
+* [Expresiones Regulares](#expresiones-regulares)
+* [Porcentajes Literales](#porcentajes-literales)
+* [Metaprogramación](#metaprogramaci%C3%B3n)
+* [Varios](#varios)
+* [Herramientas](#herramientas)
 
 ## Código Fuente del Layout
 
