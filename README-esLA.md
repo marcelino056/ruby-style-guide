@@ -56,7 +56,7 @@ debido tiempo se abordarán estos temas - sólo ténganlos en cuenta por ahora.
 Podés generar un PDF o una versión HTML de esta guía usando
 [Transmuter](https://github.com/TechnoGate/transmuter).
 
-[RuboCop](https://github.com/bbatsov/rubocop) es un analizador de código, basado en
+[RuboCop](https://github.com/bbatsov/rubocop) es un validador de código, basado en
 esta guía de estilo.
 
 Traducciones de esta guía están disponibles en los siguientes idiomas:
@@ -68,7 +68,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
 
 ## Tabla de Contenidos
 
-* [Código Fuente del Layout](#c%C3%B3digo-fuente-del-layout)
+* [Estructura del Código Fuente](#estructura-del-c%C3%B3digo-fuente)
 * [Sintaxis](#sintaxis)
 * [Nombres](#nombres)
 * [Comentarios](#comentarios)
@@ -83,7 +83,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
 * [Varios](#varios)
 * [Herramientas](#herramientas)
 
-## Código Fuente del Layout
+## Estructura del Código Fuente
 
 > Casi todo el mundo está convencido de que todos los estilos
 > excepto los propios son feos e ilegibles. Deja de lado el
