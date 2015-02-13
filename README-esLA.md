@@ -373,7 +373,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     más utilizado en la práctica (y hasta se podría decirse que es un poco más fácil
     de leer).
 
-* Evita usar la contínuación de línea con '\' cuando no sea necesario. En la práctica, Evita el uso de continuación de línea en cualquier caso, excepto para la concatenación de strings.
+* Evita usar la contínuación de línea con '\' cuando no sea necesario. En la práctica, evita el uso de continuación de línea en cualquier caso, excepto para la concatenación de strings.
 
     ```Ruby
     # mal
@@ -400,7 +400,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
       .four
     ```
 
-* Alineá los parámetros de una llamada a un método si ocupan más de una
+* Alinea los parámetros de una llamada a un método si ocupan más de una
   línea. Cuando se alinean los parámetros no es apropiado que sea con
   más indentación de lo debido, y utilizar un indentado único para las
   líneas luego del primer parámetro también es aceptable.
@@ -439,7 +439,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     end
     ```
 
-* Alineá los elementos de arrays literales que ocupen múltiples líneas.
+* Alinea los elementos de arrays literales que ocupen múltiples líneas.
 
     ```Ruby
     # mal - indentado simple
@@ -458,7 +458,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
        "Baked beans", "Spam", "Spam", "Spam", "Spam", "Spam"]
     ```
 
-* agrega guiones bajos para números literales grandes para mejorar su lectura.
+* Agrega guiones bajos para números literales grandes para mejorar su lectura.
 
     ```Ruby
     # mal - cuantos 0s hay ahi?
@@ -1787,7 +1787,7 @@ de crear instancias de una clase en particular.
     comparten una variable de clase. Por lo general las variables de instancia
     de clase deben ser preferidas a las variables de clase.
 
-* Asigná niveles de visibilidad adecuados para los métodos (`private`,
+* Asigna niveles de visibilidad adecuados para los métodos (`private`,
   `protected`) de acuerdo con su correcto uso. No vayas por ahi dejando
   todo `public` (que es el estado predeterminado). Después de todo
   ahora estamos programando en *Ruby*, no en *Python*.
