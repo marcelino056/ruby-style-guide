@@ -90,8 +90,8 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
 > "excepto los propios", y probablemente tengan razón... <br/>
 > -- Jerry Coffin (sobre indentación)
 
-* Usá `UTF-8` como la codificación del archivo fuente.
-* Usá dos **espacios** por cada nivel de identación. No tabs.
+* Usa `UTF-8` como la codificación del archivo fuente.
+* Usa dos **espacios** por cada nivel de identación. No tabs.
 
     ```Ruby
     # mal - cuatro espacios
@@ -105,7 +105,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     end
     ```
 
-* Usá finales de línea estilo Unix. (*por defecto los usuarios BSD/Solaris/Linux/OSX
+* Usa finales de línea estilo Unix. (*por defecto los usuarios BSD/Solaris/Linux/OSX
   están protegidos, los usuarios de Windows tienen que tener mucho cuidado.)
     * Si estás usando Git es posible que quieras agregar la siguiente
     configuración para proteger tu proyecto de los finales de línea
@@ -133,7 +133,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     puts 'foo', 'bar' # esto aplica a puts en particular
     ```
 
-* Preferí un formato de única línea por cada definición de clase
+* Prefiere un formato de única línea por cada definición de clase
   sin cuerpo.
 
     ```Ruby
@@ -148,7 +148,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     FooError = Class.new(StandardError)
     ```
 
-* Evitá métodos de una sola línea. Aunque son algo popular, hay
+* Evita métodos de una sola línea. Aunque son algo popular, hay
   algunas particularidades sobre su sintaxis para definirlos que
   hacen que su uso indeseable. En cualquier caso - no debe
   existir más de una expresión en un método de una sola línea.
@@ -179,7 +179,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     def no_op; end
     ```
 
-* Usá espacios entre operadores, después de las comas, dos puntos y puntos
+* Usa espacios entre operadores, después de las comas, dos puntos y puntos
   y comas, luego de `{` y antes de `}`. Los espacios en blanco pueden (en
   su mayoría) irrelevantes para el intérprete de Ruby, pero su uso adecuado
   es la clave para escribir código fácil de leer.
@@ -253,7 +253,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     !something
     ```
 
-* Indentá `when` tan profundo como `case`. Sé que muchos no estarán
+* Indenta `when` tan profundo como `case`. Sé que muchos no estarán
   de acuerdo con esto, pero es el estilo establecido tanto en "The
   Ruby Programming Language" y "Programming Ruby".
 
@@ -337,7 +337,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
       end
     ```
 
-* Usá líneas vacías entre definiciones de métodos y también para romper un método en
+* Usa líneas vacías entre definiciones de métodos y también para romper un método en
   párrafos lógicos internos.
 
     ```Ruby
@@ -354,7 +354,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     end
     ```
 
-* Usá espacios alrededor del operador `=` cuando asignes valores predeterminados a los
+* Usa espacios alrededor del operador `=` cuando asignes valores predeterminados a los
   parámetros del método:
 
     ```Ruby
@@ -373,7 +373,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     más utilizado en la práctica (y hasta se podría decirse que es un poco más fácil
     de leer).
 
-* Evitá usar la contínuación de línea con '\' cuando no sea necesario. En la práctica, evitá el uso de continuación de línea en cualquier caso, excepto para la concatenación de strings.
+* Evita usar la contínuación de línea con '\' cuando no sea necesario. En la práctica, evita el uso de continuación de línea en cualquier caso, excepto para la concatenación de strings.
 
     ```Ruby
     # mal
@@ -400,7 +400,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
       .four
     ```
 
-* Alineá los parámetros de una llamada a un método si ocupan más de una
+* Alinea los parámetros de una llamada a un método si ocupan más de una
   línea. Cuando se alinean los parámetros no es apropiado que sea con
   más indentación de lo debido, y utilizar un indentado único para las
   líneas luego del primer parámetro también es aceptable.
@@ -439,7 +439,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     end
     ```
 
-* Alineá los elementos de arrays literales que ocupen múltiples líneas.
+* Alinea los elementos de arrays literales que ocupen múltiples líneas.
 
     ```Ruby
     # mal - indentado simple
@@ -458,7 +458,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
        "Baked beans", "Spam", "Spam", "Spam", "Spam", "Spam"]
     ```
 
-* Agregá guiones bajos para números literales grandes para mejorar su lectura.
+* Agrega guiones bajos para números literales grandes para mejorar su lectura.
 
     ```Ruby
     # mal - cuantos 0s hay ahi?
@@ -468,10 +468,10 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     num = 1_000_000
     ```
 
-* Usá RDoc y sus convenciones para la documentación de APIs. No dejes
+* Usa RDoc y sus convenciones para la documentación de APIs. No dejes
   una línea en blanco entre el bloque de comentario y el `def`.
 * Limitá las líneas a 80 caracteres.
-* Evitá los espacios en blanco.
+* Evita los espacios en blanco.
 * No uses los comentarios de bloque. Ellos no pueden tener espacios en blanco
   antes y no son tan fáciles de entenderlos como comentarios.
 
@@ -489,7 +489,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
 
 ## Sintaxis
 
-* Usá `::` sólo para referenciar constantes (esto incluye clases
+* Usa `::` sólo para referenciar constantes (esto incluye clases
 y módulos) y construcciones (como `Array()` o `Nokogiri::HTML()`).
 Nunca uses `::` para la invocación de métodos.
 
@@ -505,7 +505,7 @@ Nunca uses `::` para la invocación de métodos.
     SomeModule::SomeClass()
     ```
 
-* Usá `def` con paréntesis cuando tengas argumentos. Omití los
+* Usa `def` con paréntesis cuando tengas argumentos. Omite los
   paréntesis cuando el método no acepta ningún argumento.
 
      ```Ruby
@@ -569,7 +569,7 @@ Nunca uses `::` para la invocación de métodos.
     end
     ```
 
-* Siempre escribí la condición en la misma línea para los condicionales `if`/`unless` con multilíneas.
+* Siempre escribe la condición en la misma línea para los condicionales `if`/`unless` con multilíneas.
 
     ```Ruby
     # mal
@@ -586,7 +586,7 @@ Nunca uses `::` para la invocación de métodos.
     end
     ```
 
-* Preferí el operador ternario (`?:`) en lugar de las construcciones
+* Prefiere el operador ternario (`?:`) en lugar de las construcciones
   `if/then/else/end`. Es más común y obviamente más conciso.
 
     ```Ruby
@@ -597,7 +597,7 @@ Nunca uses `::` para la invocación de métodos.
     result = some_condition ? something : something_else
     ```
 
-* Usá una expresión por fila por operador ternario. Esto también
+* Usa una expresión por fila por operador ternario. Esto también
   significa que los operadores ternarios no deben anidarse. Es
   preferible utilizar construcciones `if/else` en estos casos.
 
@@ -613,7 +613,7 @@ Nunca uses `::` para la invocación de métodos.
     end
     ```
 
-* Nunca uses `if x: ...` - fue eliminado en Ruby 1.9. Usá el
+* Nunca uses `if x: ...` - fue eliminado en Ruby 1.9. Usa el
   operador ternario en su lugar.
 
     ```Ruby
@@ -624,14 +624,14 @@ Nunca uses `::` para la invocación de métodos.
     result = some_condition ? something : something_else
     ```
 
-* Nunca uses `if x; ...`. Usá el operador ternario en su lugar.
+* Nunca uses `if x; ...`. Usa el operador ternario en su lugar.
 
-* Usá `when x then ...` para condicionales de una línea. La sintaxis
+* Usa `when x then ...` para condicionales de una línea. La sintaxis
   alternativa `when x: ...` fue eliminada en Ruby 1.9.
 
 * Nunca uses `when x; ...`. Mirá la regla anterior.
 
-* Usá `!` en lugar de `not`.
+* Usa `!` en lugar de `not`.
 
     ```Ruby
     # mal - los paréntesis son necesarios por la precedencia de operador
@@ -641,7 +641,7 @@ Nunca uses `::` para la invocación de métodos.
     x = !something
     ```
 
-* Evitá el uso de `!!`.
+* Evita el uso de `!!`.
 
     ```Ruby
     # mal
@@ -685,7 +685,7 @@ Nunca uses `::` para la invocación de métodos.
     document.saved? || document.save!
     ```
 
-* Evitá usar `?:` (operador ternario) en multilíneas; en su lugar usá `if/unless`.
+* Evita usar `?:` (operador ternario) en multilíneas; en su lugar usá `if/unless`.
 
 * Favorecé al uso del modificador `if/unless` cuando tengas que escribir en una línea.
   Otra buena alternativa es el uso del control de flujo con `&&/||`.
@@ -720,7 +720,7 @@ Nunca uses `::` para la invocación de métodos.
     some_condition || do_something
     ```
 
-* Nunca uses `unless` con `else`. Reescribí para que el caso positivo esté primero.
+* Nunca uses `unless` con `else`. Reescribe para que el caso positivo esté primero.
 
     ```Ruby
     # mal
@@ -797,7 +797,7 @@ Nunca uses `::` para la invocación de métodos.
     do_something until some_condition
     ```
 
-* Usá `Kernel#loop` con break en lugar de `begin/end/until` o `begin/end/while`
+* Usa `Kernel#loop` con break en lugar de `begin/end/until` o `begin/end/while`
   para validar al final de cada loop.
 
    ```Ruby
@@ -815,10 +815,10 @@ Nunca uses `::` para la invocación de métodos.
    end
    ```
 
-* Omití los paréntesis alrededor de los parámetros para los métodos
+* Omite los paréntesis alrededor de los parámetros para los métodos
   que forman parte de un DSL interno (ejemplo: Rake, Rails, RSpec),
   métodos que tengan "keyword" status en Ruby (ejemplo: `attr_reader`,
-  `puts`) y métodos accesores de atributos. Usá paréntesis alrededor
+  `puts`) y métodos accesores de atributos. Usa paréntesis alrededor
   de los argumentos de todas las otras llamadas a métodos.
 
     ```Ruby
@@ -839,7 +839,7 @@ Nunca uses `::` para la invocación de métodos.
     bowling.score.should == 0
     ```
 
-* Omití las llaves externas alrededor de las opciones implícitas
+* Omite las llaves externas alrededor de las opciones implícitas
   de un hash.
 
     ```Ruby
@@ -850,7 +850,7 @@ Nunca uses `::` para la invocación de métodos.
     user.set(name: 'John', age: 45, permissions: { read: true })
     ```
 
-* Omití tanto las llaves externas como los paréntesis para métodos que formen
+* Omite tanto las llaves externas como los paréntesis para métodos que formen
   parte de un DSL interno.
 
     ```Ruby
@@ -863,7 +863,7 @@ Nunca uses `::` para la invocación de métodos.
     end
     ```
 
-* Omití los paréntesis para llamadas a métodos sin argumentos.
+* Omite los paréntesis para llamadas a métodos sin argumentos.
 
     ```Ruby
     # mal
@@ -879,10 +879,10 @@ Nunca uses `::` para la invocación de métodos.
     'test'.upcase
     ```
 
-* Elegí `{...}` por sobre `do...end` para bloques de una línea. Evitá
+* Elige `{...}` por sobre `do...end` para bloques de una línea. Evita
   el uso de `{...}` para bloques multilíneas (encadenamiento de multilínea
   siempre es horrible). Siempre usá `do...end` para "contorl de flujo" y
-  "definiciones de métodos" (e.g. en Rakefiles y algunos DSLs). Evitá usar
+  "definiciones de métodos" (e.g. en Rakefiles y algunos DSLs). Evita usar
   `do...end` cuando estés encadenando métodos.
 
     ```Ruby
@@ -909,7 +909,7 @@ Nunca uses `::` para la invocación de métodos.
     el uso de {...}, pero en realidad deberían preguntarse a sí mismos - es el código realmente
     legible y los contenidos de los bloques pueden ser extraídos con métodos elegantes?
 
-* Evitá usar `return` cuando no se requiera realizar control de flujo.
+* Evita usar `return` cuando no se requiera realizar control de flujo.
 
     ```Ruby
     # mal
@@ -923,7 +923,7 @@ Nunca uses `::` para la invocación de métodos.
     end
     ```
 
-* Evitá usar `self` cuando no es necesario. (Solo se necesita cuando se llama a un accesor de escritura propio.)
+* Evita usar `self` cuando no es necesario. (Solo se necesita cuando se llama a un accesor de escritura propio.)
 
     ```Ruby
     # mal
@@ -945,7 +945,7 @@ Nunca uses `::` para la invocación de métodos.
     end
     ```
 
-* Como convención, evitá oscurecer métodos con variables locales, excepto que ambos sean lo mismo.
+* Como convención, evita oscurecer métodos con variables locales, excepto que ambos sean lo mismo.
 
     ```Ruby
     class Foo
@@ -999,14 +999,14 @@ Nunca uses `::` para la invocación de métodos.
     end
     ```
 
-* Usá `||=` libremente para inicializar variables.
+* Usa `||=` libremente para inicializar variables.
 
     ```Ruby
     # set name to Bozhidar, only if it's nil or false
     name ||= 'Bozhidar'
     ```
 
-* No uses `||=` para inicializar variables booleanas. (Considerá qué
+* No uses `||=` para inicializar variables booleanas. (Considera qué
 pasaría si el valor actual fuese `false`.)
 
     ```Ruby
@@ -1017,7 +1017,7 @@ pasaría si el valor actual fuese `false`.)
     enabled = true if enabled.nil?
     ```
 
-* Evitá el uso explícito del operador de igualdad idéntica `===`.
+* Evita el uso explícito del operador de igualdad idéntica `===`.
   Como su nombre indica, está destinado a ser utilizado
   implícitamente por expresiones `case` y fuera de ellas provee
   código bastante confuso.
@@ -1034,7 +1034,7 @@ pasaría si el valor actual fuese `false`.)
     some_string =~ /something/
     ```
 
-* Evitá usar variables especiales de tipo Perl (como `$:`, `$;`, etc.). Son bastante crípticas y su uso en cualquier lugar excepto scripts de una línea está desalentado. Usá los alias amigables para humanos proporcionados por la librería `English`.
+* Evita usar variables especiales de tipo Perl (como `$:`, `$;`, etc.). Son bastante crípticas y su uso en cualquier lugar excepto scripts de una línea está desalentado. Usa los alias amigables para humanos proporcionados por la librería `English`.
 
     ```Ruby
     # mal
@@ -1057,13 +1057,13 @@ pasaría si el valor actual fuese `false`.)
 
 * Si el primer argumento de un método comienza con un paréntesis abierto,
   siempre utilizá paréntesis en la invocación del método. Por ejemplo,
-  escribí `f ((3 + 2) + 1)`.
+  escribe `f ((3 + 2) + 1)`.
 
 * Siempre ejecutá el intérprete de Ruby con la opción `-w`, para que
 avise si se olvida alguna de las reglas anteriores!
 
-* Usá la nueva sintaxis de lambda literal para bloques de una sola línea.
-  Usá el método `lambda` para bloques multilínea.
+* Usa la nueva sintaxis de lambda literal para bloques de una sola línea.
+  Usa el método `lambda` para bloques multilínea.
 
     ```Ruby
     # mal
@@ -1086,7 +1086,7 @@ avise si se olvida alguna de las reglas anteriores!
     end
     ```
 
-* Elegí `proc` por sobre `Proc.new`.
+* Elige `proc` por sobre `Proc.new`.
 
     ```Ruby
     # mal
@@ -1096,7 +1096,7 @@ avise si se olvida alguna de las reglas anteriores!
     p = proc { |n| puts n }
     ```
 
-* Elegí `proc.call()` por sobre `proc[]` o `proc.()` tanto para lambdas y procs.
+* Elige `proc.call()` por sobre `proc[]` o `proc.()` tanto para lambdas y procs.
 
     ```Ruby
     # mal - se ve similar a un acceso de Enumeración
@@ -1112,7 +1112,7 @@ avise si se olvida alguna de las reglas anteriores!
     l.call(1)
     ```
 
-* Usá `_` para los parámetros sin usar de bloques.
+* Usa `_` para los parámetros sin usar de bloques.
 
     ```Ruby
     # mal
@@ -1122,17 +1122,17 @@ avise si se olvida alguna de las reglas anteriores!
     result = hash.map { |_, v| v + 1 }
     ```
 
-* Usea `$stdout/$stderr/$stdin` en lugar de
+* Usa `$stdout/$stderr/$stdin` en lugar de
   `STDOUT/STDERR/STDIN`. `STDOUT/STDERR/STDIN` son constantes, y
-  mientras que podés reasignar constantes (posiblemente para redirigr
+  mientras que puedas reasignar constantes (posiblemente para redirigr
   un proceso) en Ruby, vas a tener una advertencia del intérprete si
   hacés eso.
 
-* Usá `warn` en lugar de `$stderr.puts`. Aparte de ser más conciso y
+* Usa `warn` en lugar de `$stderr.puts`. Aparte de ser más conciso y
 claro, `warn` te permite suprimir advertencias si lo necesitás
 (seteando el nivel de advertencia a 0 via `-W0`).
 
-* Elegí usar `sprintf` y su alias `format` por sobre el método
+* Elige usar `sprintf` y su alias `format` por sobre el método
   críptico `String#%`.
 
     ```Ruby
@@ -1156,7 +1156,7 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
     # => '20 10'
     ```
 
-* Elegí el uso de `Array#join` por sobre el críptico `Array#*` con
+* Elige el uso de `Array#join` por sobre el críptico `Array#*` con
   un argumento string.
 
     ```Ruby
@@ -1169,7 +1169,7 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
     # => 'one, two, three'
     ```
 
-* Usá `[*var]` o `Array()` en lugar de la verificación explícita `Array`,
+* Usa `[*var]` o `Array()` en lugar de la verificación explícita `Array`,
   cuando trabajes con una variable que quieras tratar como un Array, pero
   no estás seguro que sea un array.
 
@@ -1185,7 +1185,7 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
     Array(paths).each { |path| do_something(path) }
     ```
 
-* Usá rangos o `Comparable#between?` en lugar de una comparación lógica
+* Usa rangos o `Comparable#between?` en lugar de una comparación lógica
   compleja cuando sea posible.
 
     ```Ruby
@@ -1199,7 +1199,7 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
     do_something if x.between?(1000, 2000)
     ```
 
-* Elegí el uso de métodos subyacentes en lugar de las comparaciones
+* Elige el uso de métodos subyacentes en lugar de las comparaciones
   explícitas con `==`. Comparaciones numéricas están OK.
 
     ```Ruby
@@ -1230,7 +1230,7 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
     end
     ```
 
-* Evitá el uso de bloques `BEGIN`.
+* Evita el uso de bloques `BEGIN`.
 
 * Nunca uses bloques `END`. En su lugar usá `Kernel#at_exit`.
 
@@ -1244,10 +1244,10 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
     at_exit { puts 'Goodbye!' }
     ```
 
-* Evitá el uso de flip-flops.
+* Evita el uso de flip-flops.
 
-* Evitá el uso de condicionales anidados para control de flujo.
-  Elegí una cláusula de guardia (guard clause) cuando puedas afirmar datos inválidos.
+* Evita el uso de condicionales anidados para control de flujo.
+  Elige una cláusula de guardia (guard clause) cuando puedas afirmar datos inválidos.
   Una cláusula de guardia es un condicional al principio de una función que trata de
   salir de ella tan pronto como pueda.
 
@@ -1292,7 +1292,7 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
     salary = 1_000
     ```
 
-* Usá `snake_case` para los símbolos, métodos y variables.
+* Usa `snake_case` para los símbolos, métodos y variables.
 
     ```Ruby
     # mal
@@ -1318,7 +1318,7 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
     end
     ```
 
-* Usá `CamelCase` para clases y módulos.  (Mantené en mayúsculas los
+* Usa `CamelCase` para clases y módulos.  (Mantené en mayúsculas los
   acrónimos como HTTP, RFC, XML.)
 
     ```Ruby
@@ -1345,7 +1345,7 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
     end
     ```
 
-* Usá `SCREAMING_SNAKE_CASE` para las constantes.
+* Usa `SCREAMING_SNAKE_CASE` para las constantes.
 
     ```Ruby
     # mal
@@ -1388,7 +1388,7 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
     end
     ```
 
-* Definí un método non-bang (seguro) en relación al método bang
+* Define un método non-bang (seguro) en relación al método bang
   (peligroso) si es posible.
 
     ```Ruby
@@ -1421,7 +1421,7 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
     end
     ```
 
-* Elegí `map` por sobre `collect`, `find` por sobre `detecet`, `select`
+* Elige `map` por sobre `collect`, `find` por sobre `detecet`, `select`
   por sobre `find_all`, `reduce` por sobre `inject` y `size` por sobre
   `length`. No es un requerimiento difícil; si el uso de alias realza
   la legibilidad, está bien usarlos. Los métodos de rima son heredados
@@ -1429,7 +1429,7 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
   razón para usar `select` por sobre `find_all` es porque va muy bien
   junto con `reject` y su nombre es bastante auto-explicativo.
 
-* Usá `flat_map` en lugar de `map` + `flatten`.
+* Usa `flat_map` en lugar de `map` + `flatten`.
   Esto no se aplica a los arrays con profundidad mayor a 2, ejemplo:
   si tenemos `users.first.songs == ['a', ['b','c']]`, entonces hay que
   usar `map + flatten` en lugar de `flat_map`. `flat_map` achata el
@@ -1443,7 +1443,7 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
     all_songs = users.flat_map(&:songs).uniq
     ```
 
-* Usá `reverse_each` en lugar de `reverse.each`. `reverse_each` no
+* Usa `reverse_each` en lugar de `reverse.each`. `reverse_each` no
   realiza una asignación de array y eso es algo bueno.
 
 
@@ -1463,14 +1463,14 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
 > documentalo para que hacerlo aún más claro. <br/>
 > -- Steve McConnell
 
-* Escribí código autodocumentado e ignorá el resto de esta sección. En serio!
-* Escribí tus comentarios en Inglés para evitar problemas con los caracteres
+* Escribe código autodocumentado e ignorá el resto de esta sección. En serio!
+* Escribe tus comentarios en Inglés para evitar problemas con los caracteres
   especiales.
-* Usá un espacio entre el primer caracter `#` del comentario y el texto
+* Usa un espacio entre el primer caracter `#` del comentario y el texto
   propio del comentario.
 * Los comentarios que son más largos que una palabra son capitalizados y usan
-  puntuación. Usá [un espacio](http://es.wikipedia.org/wiki/Espacio_entre_oraciones) luego de los puntos.
-* Evitá comentarios supérfluos.
+  puntuación. Usa [un espacio](http://es.wikipedia.org/wiki/Espacio_entre_oraciones) luego de los puntos.
+* Evita comentarios supérfluos.
 
     ```Ruby
     # mal
@@ -1483,7 +1483,7 @@ que no utilizar comentarios.
 > El buen código es como un buen chiste - no necesita explicación <br/>
 > -- Russ Olsen
 
-* Evitá escribir comentarios para explicar código malo. Refactorizá el código
+* Evita escribir comentarios para explicar código malo. Refactorizá el código
   para hacerlo más auto-explicativo. ()
 * Avoid writing comments to explain bad code. Refactor the code to
   make it self-explanatory. (Hacé o no hacé - no hay intentar. --Yoda)
@@ -1515,22 +1515,22 @@ que no utilizar comentarios.
     end
     ```
 
-* Usá `TODO` para resaltar funcionalidades faltantes o funcionalidades que
+* Usa `TODO` para resaltar funcionalidades faltantes o funcionalidades que
   deben agregarse más adelante.
-* Usá `FIXME` para resaltar código roto que necesita ser arreglado.
-* Usá `OPTIMIZE` para resaltar código lento o ineficiente que pueda causar
+* Usa `FIXME` para resaltar código roto que necesita ser arreglado.
+* Usa `OPTIMIZE` para resaltar código lento o ineficiente que pueda causar
   problemas de performance.
-* Usá `HACK` para resaltar código que utilice prácticas cuestionables que
+* Usa `HACK` para resaltar código que utilice prácticas cuestionables que
   no se vean bien y que debería ser refactorizado lo antes posible.
-* Usá `REVIEW` para resaltar cualquier cosa que debe ser revisada para
+* Usa `REVIEW` para resaltar cualquier cosa que debe ser revisada para
   confirmar que está funcionando como debería. Por ejemplo: `REVIEW: Are
   we sure this is how the client does X currently?`
-* Usá otra palabra como apunte si sentís que sea apropiado, pero asegurate
+* Usa otra palabra como apunte si sentís que sea apropiado, pero asegurate
   de documentarlas en el `README` de tu proyecto o similar.
 
 ## Clases y Módulos
 
-* Usá una estructura coherente para definicior tu clase.
+* Usa una estructura coherente para definicior tu clase.
 
     ```Ruby
     class Person
@@ -1568,7 +1568,7 @@ que no utilizar comentarios.
     end
     ```
 
-* Elegí módules de clases únicamente con métodos de clases. Las clases
+* Elige módules de clases únicamente con métodos de clases. Las clases
   deben ser utilizadas únicamente cuando tiene sentido crear instancias
   fuera de ellos.
 
@@ -1596,7 +1596,7 @@ que no utilizar comentarios.
     end
     ```
 
-* Elegí el uso de `module_function` por sobre `extend self` cuando
+* Elige el uso de `module_function` por sobre `extend self` cuando
   quieras cambiar los métodos de instancia de un módulo en un método
   de clase.
 
@@ -1651,7 +1651,7 @@ que no utilizar comentarios.
     end
     ```
 
-* Usá la familia de funciones `attr` para definir accesores triviales
+* Usa la familia de funciones `attr` para definir accesores triviales
 o mutators.
 
     ```Ruby
@@ -1682,7 +1682,7 @@ o mutators.
     end
     ```
 
-* Evitá el uso de `attr`. En su lugar usá `attr_reader` y `attr_accessor`.
+* Evita el uso de `attr`. En su lugar usá `attr_reader` y `attr_accessor`.
 
     ```Ruby
     # mal - crea un único accesor de atributo (deprecado en 1.9)
@@ -1694,7 +1694,7 @@ o mutators.
     attr_reader :one, :two, :three
     ```
 
-* Considerá usar `Struct.new`, el cual define por vos los accesores
+* Considera usar `Struct.new`, el cual define por vos los accesores
 triviales, constructor y operadores de comparación.
 
     ```Ruby
@@ -1715,7 +1715,7 @@ triviales, constructor y operadores de comparación.
 
 * No extiendas un `Struct.new` - ya de por si es una clase nueva. Extendiéndolo introduce un nivel de clase superfluo y también puede introducir errores extraños si el archivo es requerido múltiples veces.
 
-* Considerá agregar un método factory para proveer más formas sensibles
+* Considera agregar un método factory para proveer más formas sensibles
 de crear instancias de una clase en particular.
 
     ```Ruby
@@ -1726,7 +1726,7 @@ de crear instancias de una clase en particular.
     end
     ```
 
-* Preferí [duck-typing](http://es.wikipedia.org/wiki/Duck_typing) en lugar de herencia.
+* Prefiere [duck-typing](http://es.wikipedia.org/wiki/Duck_typing) en lugar de herencia.
 
     ```Ruby
     # mal
@@ -1764,7 +1764,7 @@ de crear instancias de una clase en particular.
     end
     ```
 
-* Evitá el uso de variables de clas (`@@`) debido a sus comportamientos
+* Evita el uso de variables de clas (`@@`) debido a sus comportamientos
 "sucios" en la herencia.
 
     ```Ruby
@@ -1783,15 +1783,15 @@ de crear instancias de una clase en particular.
     Parent.print_class_var # => will print "child"
     ```
 
-    Como podés ver todas las clases en una jerarquía de clases en realidad
+    Como puedas ver todas las clases en una jerarquía de clases en realidad
     comparten una variable de clase. Por lo general las variables de instancia
     de clase deben ser preferidas a las variables de clase.
 
-* Asigná niveles de visibilidad adecuados para los métodos (`private`,
+* Asigna niveles de visibilidad adecuados para los métodos (`private`,
   `protected`) de acuerdo con su correcto uso. No vayas por ahi dejando
   todo `public` (que es el estado predeterminado). Después de todo
   ahora estamos programando en *Ruby*, no en *Python*.
-* Indentá las palabas `public`, `protected`, y `private` tanto como los
+* Indenta las palabas `public`, `protected`, y `private` tanto como los
   métodos a los que se aplican. Dejá una línea en blanco antes y después
   del modificador de visibilidad, en orden de enfatizar que eso aplica a
   todos los métodos que se encuentran debajo.
@@ -1814,7 +1814,7 @@ de crear instancias de una clase en particular.
     end
     ```
 
-* Usá `def self.method` para definir métodos singleton. Eso hace el
+* Usa `def self.method` para definir métodos singleton. Eso hace el
   código más fácil de refactorizar, debido a que el nombre de la clase
   no está repetido.
 
@@ -1846,7 +1846,7 @@ de crear instancias de una clase en particular.
 
 ## Excepciones
 
-* Señalizá las excepciones utilizando el método `fail`. Usá `raise`
+* Señaliza las excepciones utilizando el método `fail`. Usa `raise`
   solo cuando quieras atrapar una excepción y quieras volver a
   llamarlo (porque no está fallando, sino que está lanzando una
   excepción de forma explícita y a propósito).
@@ -1870,7 +1870,7 @@ de crear instancias de una clase en particular.
     fail 'message'
     ```
 
-* Elegí suministrar una clase de excepción y un mensaje como dos
+* Elige suministrar una clase de excepción y un mensaje como dos
   argumentos separados para `fail/raise`, en lugar de una instancia
   de excepción.
 
@@ -1900,7 +1900,7 @@ de crear instancias de una clase en particular.
     end
     ```
 
-* Usá *bloques implícitos de begin* siempre que sea posible.
+* Usa *bloques implícitos de begin* siempre que sea posible.
 
     ```Ruby
     # mal
@@ -1963,7 +1963,7 @@ de crear instancias de una clase en particular.
     do_something rescue nil
     ```
 
-* Evitá usar `rescue` en su forma de modificador.
+* Evita usar `rescue` en su forma de modificador.
 
     ```Ruby
     # mal - esto atrapa una excepción de la clase StandardError y sus clases hijas
@@ -1996,7 +1996,7 @@ de crear instancias de una clase en particular.
     end
     ```
 
-* Evitá rescatar la clase `Exception`. Esto va a atrapar la señal y va a
+* Evita rescatar la clase `Exception`. Esto va a atrapar la señal y va a
   llamar a `exit`, siendo necesario que pases `kill -9` al proceso.
 
     ```Ruby
@@ -2027,7 +2027,7 @@ de crear instancias de una clase en particular.
 
     ```
 
-* Escribí excepciones más específicas primero, de otra forma nunca
+* Escribe excepciones más específicas primero, de otra forma nunca
   van a poder ser atrapadas.
 
     ```Ruby
@@ -2050,7 +2050,7 @@ de crear instancias de una clase en particular.
     end
     ```
 
-* Cerrá recursos externos abiertos por tu programa en un bloque
+* Cierra recursos externos abiertos por tu programa en un bloque
 ensure.
 
     ```Ruby
@@ -2064,12 +2064,12 @@ ensure.
     end
     ```
 
-* Preferí el uso de excepciones de la standard library en lugar
+* Prefiere el uso de excepciones de la standard library en lugar
 de crear nuevas clases de excepciones.
 
 ## Colecciones
 
-* Preferí el uso de la notación para arrays literales y creación de hashes
+* Prefiere el uso de la notación para arrays literales y creación de hashes
 (excepto que necesites pasar parámetros a sus constructores).
 
     ```Ruby
@@ -2082,7 +2082,7 @@ de crear nuevas clases de excepciones.
     hash = {}
     ```
 
-* Preferí usar `%w` en lugar de la sintaxis array literal cuando
+* Prefiere usar `%w` en lugar de la sintaxis array literal cuando
 necesites un array de palabras (strings no-vacías sin espacios ni
 caracteres espaciles en cada uno). Aplicá esta regla solo en los arrays
 de dos o más elementos.
@@ -2095,7 +2095,7 @@ de dos o más elementos.
     STATES = %w(draft open closed)
     ```
 
-* Preferí `%i` en lugar de la sintaxis de array literal cuando
+* Prefiere `%i` en lugar de la sintaxis de array literal cuando
 necesites un array de símbolos (y no necesitás mantener compatibilidad
 con Ruby 1.9). Aplicá esta regla sólo para arrays con dos o más
 elementos.
@@ -2108,7 +2108,7 @@ elementos.
     STATES = %i(draft open closed)
     ```
 
-* Evitá la creación de grandes espacios en arrays.
+* Evita la creación de grandes espacios en arrays.
 
     ```Ruby
     arr = []
@@ -2118,11 +2118,11 @@ elementos.
 * Cuando estés accediendo al primer o último elmento de un array, preferí
 usar `first` o `last` en lugar de `[0]` o `[-1]`.
 
-* Usá `Set` en lugar de `Array` cuando estés tratando con elementos
+* Usa `Set` en lugar de `Array` cuando estés tratando con elementos
   únicos. `Set` implementa una colección de valores desordenados sin
   duplicados. Esto es un híbrido de la vacilidad interoperacional
   intuitiva de `Array`, y velocidad de lectura de `Hash`.
-* Preferí símbolos en lugar de strings y hash keys.
+* Prefiere símbolos en lugar de strings y hash keys.
 
     ```Ruby
     # mal
@@ -2132,8 +2132,8 @@ usar `first` o `last` en lugar de `[0]` o `[-1]`.
     hash = { one: 1, two: 2, three: 3 }
     ```
 
-* Evitá el uso de objetos mutables como hash keys.
-* Usá la sintaxis de hash literal cuando tus hash keys sean símbolos.
+* Evita el uso de objetos mutables como hash keys.
+* Usa la sintaxis de hash literal cuando tus hash keys sean símbolos.
 
     ```Ruby
     # mal
@@ -2143,7 +2143,7 @@ usar `first` o `last` en lugar de `[0]` o `[-1]`.
     hash = { one: 1, two: 2, three: 3 }
     ```
 
-* Usá `Hash#key?` en lugar de `Hash#has_key?` y `Hash#value?` en lugar de
+* Usa `Hash#key?` en lugar de `Hash#has_key?` y `Hash#value?` en lugar de
   `Hash#has_value?`. Como dice Matz
   [aquí](http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/43765),
   Las funciones largas están consideradas deprecadas.
@@ -2158,7 +2158,7 @@ usar `first` o `last` en lugar de `[0]` o `[-1]`.
     hash.value?(value)
     ```
 
-* Usá `Hash#fetch` cuando estés tratando con hash keys que deben estar
+* Usa `Hash#fetch` cuando estés tratando con hash keys que deben estar
 presentes.
 
     ```Ruby
@@ -2171,7 +2171,7 @@ presentes.
     heroes.fetch(:supermann)
     ```
 
-* Utilizá valores por defecto para hash keys usando `Hash#fetch`, opuesto a generar tu
+* Utiliza valores por defecto para hash keys usando `Hash#fetch`, opuesto a generar tu
 propia lógica.
 
    ```Ruby
@@ -2184,7 +2184,7 @@ propia lógica.
    batman.fetch(:is_evil, true) # => false
    ```
 
-* Preferí el uso de bloques en lugar del formato por defecto de `Hash#fetch`.
+* Prefiere el uso de bloques en lugar del formato por defecto de `Hash#fetch`.
 
    ```Ruby
    batman = { name: 'Bruce Wayne' }
@@ -2202,7 +2202,7 @@ propia lógica.
 
 ## Strings
 
-* Preferí interpolación de strings en lugar de concatenación de strings:
+* Prefiere interpolación de strings en lugar de concatenación de strings:
 
     ```Ruby
     # mal
@@ -2212,14 +2212,14 @@ propia lógica.
     email_with_name = "#{user.name} <#{user.email}>"
     ```
 
-* Considerá el uso de interpolación de string con espacio. Hace que sea más claro
+* Considera el uso de interpolación de string con espacio. Hace que sea más claro
   para separar el código del string.
 
     ```Ruby
     "#{ user.last_name }, #{ user.first_name }"
     ```
 
-* Preferí escribir los con una sola comilla cuando no tengás la necesidad de
+* Prefiere escribir los con una sola comilla cuando no tengás la necesidad de
   realizar interpolación o usar símbolos especiales como `\t`, `\n`, `'`, etc.
 
     ```Ruby
@@ -2273,7 +2273,7 @@ propia lógica.
     puts "$global = #{$global}"
     ```
 
-* Evitá usar `String#+` cuando necesites construir un pedazo grande de datos.
+* Evita usar `String#+` cuando necesites construir un pedazo grande de datos.
   En su lugar usá `String#<<`. Concatenación muta la instancia del string en el
   lugar y siempre es más rápido que `String#+`, el cual crea un grupo de nuevos
   objetos de strings.
@@ -2311,7 +2311,7 @@ propia lógica.
 
 * No uses expresiones regulares si solo necesitás buscar texto plano en un string:
   `string['text']`
-* Para construcciones simples podés usar regexp directamente a través de un índice de string.
+* Para construcciones simples puedas usar regexp directamente a través de un índice de string.
 
     ```Ruby
     match = string[/regexp/]             # get content of matched regexp
@@ -2319,7 +2319,7 @@ propia lógica.
     string[/text (grp)/, 1] = 'replace'  # string => 'text replace'
     ```
 
-* Usá grupos que no capturen código cuando no uses resultados capturados con paréntesis.
+* Usa grupos que no capturen código cuando no uses resultados capturados con paréntesis.
 
     ```Ruby
     /(first|second)/   # mal
@@ -2341,7 +2341,7 @@ propia lógica.
     ```
 
 
-* Evitá usar grupos numerados, ya que puede ser difícil de decir qué contienen. En su lugar
+* Evita usar grupos numerados, ya que puede ser difícil de decir qué contienen. En su lugar
   deben usarse grupos con nombre.
 
     ```Ruby
@@ -2369,7 +2369,7 @@ propia lógica.
     string[/\Ausername\z/] # don't match
     ```
 
-* Usá el modificador `x` para regexps complejos. Esto los hace más legibles y
+* Usa el modificador `x` para regexps complejos. Esto los hace más legibles y
   vas a poder agregar mejores comentarios. Pero tené cuidado, que los espacios
   son ignorados.
 
@@ -2387,7 +2387,7 @@ propia lógica.
 
 ## Porcentajes Literales
 
-* Usá `%()` (es un alias para `%Q`) para un string de una línea, el cual requiere tanto
+* Usa `%()` (es un alias para `%Q`) para un string de una línea, el cual requiere tanto
   interpolación y uso de comillas dobles. Para strings multi-línea, es preferible usar heredocs.
 
     ```Ruby
@@ -2407,7 +2407,7 @@ propia lógica.
     %(<tr><td class="name">#{name}</td>)
     ```
 
-* Evitá `%q`, excepto que tengas un string con `'` y `"` dentro.
+* Evita `%q`, excepto que tengas un string con `'` y `"` dentro.
   Los strings literales son más legibles y deberían ser elegidos,
   excepto que tengamos que escapar un montón de caracteres internos.
 
@@ -2423,7 +2423,7 @@ propia lógica.
     question = '"What did you say?"'
     ```
 
-* Usá `%r` solo para expresiones regulares que igualen *a más de un* caracter `/`.
+* Usa `%r` solo para expresiones regulares que igualen *a más de un* caracter `/`.
 
     ```Ruby
     # mal
@@ -2437,7 +2437,7 @@ propia lógica.
     %r(^/blog/2011/(.*)$)
     ```
 
-* Evitá el uso de `%x`, excepto que estés invocando un comando con comillas contrarias (que es bastante inusual).
+* Evita el uso de `%x`, excepto que estés invocando un comando con comillas contrarias (que es bastante inusual).
 
     ```Ruby
     # mal
@@ -2448,10 +2448,10 @@ propia lógica.
     echo = %x(echo `date`)
     ```
 
-* Evitá el uso de `%s`. Parece que la comunidad decidió que `:"some string"`
+* Evita el uso de `%s`. Parece que la comunidad decidió que `:"some string"`
   es la forma preferida para crear un símbolo con espacios dentro.
 
-* Preferí `()` como delimitadores para todos los literales `%`, excepto
+* Prefiere `()` como delimitadores para todos los literales `%`, excepto
   para `%r`. Ya que las llaves aparecen seguido dentro de las expresiones
   regulares en varios escenarios, va a ser menos común que aparezca el
   caracter `{` y va a ser una mejor elección para usar como delimitador,
@@ -2469,7 +2469,7 @@ propia lógica.
 
 ## Metaprogramación
 
-* Evitá metaprogramación innecesaria.
+* Evita metaprogramación innecesaria.
 
 * No hagas lío con las clases core cuando estés escribiendo librerías.
   (No parchees como un mono.)
@@ -2504,7 +2504,7 @@ propia lógica.
     end
     ```
 
-* Evitá usar `method_missing` para metaprogramación, ya que hace dificil leer el código, el comportamiento no está listado en `#methods`, y las llamadas a métodos mal escritas pueden funcionar silienciosamente, ejemplo: `nukes.launch_state = false`. En su lugar, considerá usar delegation, proxy o `define_method`. Si es necesario, usá `method_missing`:
+* Evita usar `method_missing` para metaprogramación, ya que hace dificil leer el código, el comportamiento no está listado en `#methods`, y las llamadas a métodos mal escritas pueden funcionar silienciosamente, ejemplo: `nukes.launch_state = false`. En su lugar, considerá usar delegation, proxy o `define_method`. Si es necesario, usá `method_missing`:
 
   - Está seguro de [también definir `respond_to_missing?`](http://blog.marc-andre.ca/2010/11/methodmissing-politely.html)
   - Solo atrapá métodos con un prefix bien definido, como `find_by_*` -- hacé tu código lo más asertivo posible.
@@ -2535,15 +2535,15 @@ propia lógica.
 
 ## Varios
 
-* Escribí código seguro con `ruby -w`.
-* Evitá los hashes como un parámetro opcional. Acaso el método hace demasiado? (Los
+* Escribe código seguro con `ruby -w`.
+* Evita los hashes como un parámetro opcional. Acaso el método hace demasiado? (Los
   inicializadores de objetos son excepciones a esta regla).
-* Evitá métodos mayores que 10 LOC (lines of code). Idealmente, la mayoría de los métodos van
+* Evita métodos mayores que 10 LOC (lines of code). Idealmente, la mayoría de los métodos van
   a ser menores que 5 LOC. Líneas vacías no cuentan como LOC relevantes.
-* Evitá listas de parámetros mayores que tres o cuatro parámetros.
+* Evita listas de parámetros mayores que tres o cuatro parámetros.
 * Si realmente necesitás métodos "globales", agregalos a tu Kernel
   y convertilos en `private`.
-* Usá variables de instancia en módulos en lugar de variables globales.
+* Usa variables de instancia en módulos en lugar de variables globales.
 
     ```Ruby
     # mal
@@ -2559,15 +2559,15 @@ propia lógica.
     Foo.bar = 1
     ```
 
-* Evitá `alias` cuando `alias_method` hace mejor el trabajo.
-* Usá `OptionParser` para parsear líneas de opciones de comando complejas
+* Evita `alias` cuando `alias_method` hace mejor el trabajo.
+* Usa `OptionParser` para parsear líneas de opciones de comando complejas
 y `ruby -s` para líneas de opciones de comando triviales.
-* Preferí `Time.now` por sobre `Time.new` cuando estés leyendo la hora del sistema.
-* Escribí código en forma funcional, evitando mutación cuando eso tenga sentido.
+* Prefiere `Time.now` por sobre `Time.new` cuando estés leyendo la hora del sistema.
+* Escribe código en forma funcional, evitando mutación cuando eso tenga sentido.
 * No mutes argumentos excepto que ese sea el propósito del método.
-* Evitá más de tres niveles de anidación de bloques.
+* Evita más de tres niveles de anidación de bloques.
 * Se consistente. En un mundo ideal, se consistente con estas guías.
-* Usá el sentido común.
+* Usa el sentido común.
 
 ## Herramientas
 
@@ -2605,7 +2605,7 @@ Este trabajo está licenciado bajo [Creative Commons Attribution 3.0 Unported Li
 # Corre la Voz
 
 Una guía de estilos pensada para la comunidad es de poca ayuda para
-esa comunidad si no conoce su existencia. Escribí tweets sobre la guía,
+esa comunidad si no conoce su existencia. Escribe tweets sobre la guía,
 compartila con tus amigos y compañeros de trabajo. Cada comentario,
 sugerencia u opinión hace que la guía sea un poco mejor. Y lo que más
 queremos que la mejor guía posible, ¿verdad?
