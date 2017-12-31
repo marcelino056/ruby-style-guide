@@ -2471,7 +2471,7 @@ propia lógica.
 
 * Evita metaprogramación innecesaria.
 
-* No hagas lío con las clases core cuando estés escribiendo librerías.
+* No hagas lío con las clases core cuando estés escribiendo bibliotecas.
   (No parchees como un mono.)
 
 * La forma de bloque de `class_eval` es preferible en forma de interpolación de string.
