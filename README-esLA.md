@@ -284,9 +284,9 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     !something
     ```
 
-* Indenta `when` tan profundo como `case`. Sé que muchos no estarán
-  de acuerdo con esto, pero es el estilo establecido tanto en "The
-  Ruby Programming Language" y "Programming Ruby".
+* Indenta `when` al mismo nivel que `case`. 
+  Sé que muchos no estarán de acuerdo con esto, pero es el estilo establecido tanto en 
+  "The Ruby Programming Language" y "Programming Ruby".
 
     ```Ruby
     # mal
@@ -333,7 +333,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
       calc_something_else
     end
 
-    # bien - es aparente qué está pasando
+    # bien - es aparente lo qué está pasando
     kind = case year
            when 1850..1889 then 'Blues'
            when 1890..1909 then 'Ragtime'
@@ -384,6 +384,103 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
       result
     end
     ```
+
+* <a name="two-or-more-empty-lines"></a>
+  No uses mas de una linea vacia seguida.
+
+  ```ruby
+  # mal - hay dos lineas vacias seguidas.
+  some_method
+
+
+  some_method
+
+  # bien
+  some_method
+
+  some_method
+  ```
+* <a name="empty-lines-around-access-modifier"></a>
+  Usa lineas vacias alrededor de los modificadores de accesibilidad.
+
+  ```ruby
+  # mal
+  class Foo
+    attr_reader :foo
+    def foo
+      # do something...
+    end
+  end
+
+  # bien
+  class Foo
+    attr_reader :foo
+
+    def foo
+      # do something...
+    end
+  end
+  ```
+
+* <a name="empty-lines-around-bodies"></a>
+  No uses lineas vacias alrededor de métodos, clases, módulos y bloques.
+
+  ```ruby
+  # mal
+  class Foo
+
+    def foo
+
+      begin
+
+        do_something do
+
+          something
+
+        end
+
+      rescue
+
+        something
+
+      end
+
+    end
+
+  end
+
+  # bien
+  class Foo
+    def foo
+      begin
+        do_something do
+          something
+        end
+      rescue
+        something
+      end
+    end
+  end
+  ```
+
+* <a name="no-trailing-params-comma"></a>
+  Evita las comas en el último parametro al llamar un método.
+  Especialmente si los parametros no estan separados por lineas
+
+  ```ruby
+  # mal - Es facil mover, eliminar o agregar parametros, pero aún asi no es recomendado
+  some_method(
+    size,
+    count,
+    color,
+  )
+
+  # mal
+  some_method(size, count, color, )
+
+  # bien
+  some_method(size, count, color)
+  ```
 
 * Usa espacios alrededor del operador `=` cuando asignes valores predeterminados a los
   parámetros del método:
