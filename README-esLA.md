@@ -61,10 +61,17 @@ esta guía de estilo.
 
 Traducciones de esta guía están disponibles en los siguientes idiomas:
 
-* [Inglés](https://github.com/bbatsov/ruby-style-guide/blob/master/README.md) (versión original)
+* [Árabe egipto](https://github.com/HassanTC/ruby-style-guide/blob/master/README-EgAr.md)
 * [Chino Simplificado](https://github.com/JuanitoFatas/ruby-style-guide/blob/master/README-zhCN.md)
 * [Chino Tradicional](https://github.com/JuanitoFatas/ruby-style-guide/blob/master/README-zhTW.md)
+* [Coreano](https://github.com/dalzony/ruby-style-guide/blob/master/README-koKR.md)
 * [Francés](https://github.com/porecreat/ruby-style-guide/blob/master/README-frFR.md)
+* [Inglés](https://github.com/bbatsov/ruby-style-guide/blob/master/README.md) (versión original)
+* [Japonés](https://github.com/fortissimo1997/ruby-style-guide/blob/japanese/README.ja.md)
+* [Portugués (pt-BR)](https://github.com/rubensmabueno/ruby-style-guide/blob/master/README-PT-BR.md)
+* [Ruso](https://github.com/arbox/ruby-style-guide/blob/master/README-ruRU.md)
+* [Vietnamita](https://github.com/CQBinh/ruby-style-guide/blob/master/README-viVN.md)
+
 
 ## Tabla de Contenidos
 
@@ -191,7 +198,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     [1, 2, 3].each { |e| puts e }
     ```
 
-    La única excepción, con respecto a los operadores, es el operador exponente:
+    Hay algunas excepciones, con respecto a los operadores, uno es el operador exponente:
 
     ```Ruby
     # mal
@@ -199,6 +206,42 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
 
     # bien
     e = M * c**2
+    ```
+
+
+    Otra excepción es el operador slash en los numeros racionales:
+
+    ```ruby
+    # mal
+    o_scale = 1 / 48r
+
+    # bien
+    o_scale = 1/48r
+    ```
+
+    Otra excepción es el operador de navegación segura :
+    ```ruby
+    # mal
+    foo &. bar
+    foo &.bar
+    foo&. bar
+
+    # bien
+    foo&.bar
+    ```
+
+* <a name="spaces-braces"></a>
+  No uses espacios después de `(`, `[` o antes de `]`, `)`.
+  Usa espacios despues de `{` and antes de `}`.
+
+    ```ruby
+    # mal
+    some( arg ).other
+    [ 1, 2, 3 ].each{|e| puts e}
+
+    # bien
+    some(arg).other
+    [1, 2, 3].each { |e| puts e }
     ```
 
     `{` y `}` merecen una aclaración especial, ya que se utilizan
@@ -231,18 +274,6 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     "string#{ expr }"
     ```
 
-    El primer estilo es extremadamente más popular y generalmente
-    se aconseja que lo elijas. Por otro lado, el segundo es
-    (posiblemente) un poco más legible. Al igual que con los hashes
-    - escogé un estilo y usalo de forma consistente.
-
-* Sin espacios luego de `(`, `[` o antes de `]`, `)`.
-
-    ```Ruby
-    some(arg).other
-    [1, 2, 3].length
-    ```
-
 * Sin espacios luego de `!`.
 
     ```Ruby
@@ -253,9 +284,9 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     !something
     ```
 
-* Indenta `when` tan profundo como `case`. Sé que muchos no estarán
-  de acuerdo con esto, pero es el estilo establecido tanto en "The
-  Ruby Programming Language" y "Programming Ruby".
+* Indenta `when` al mismo nivel que `case`. 
+  Sé que muchos no estarán de acuerdo con esto, pero es el estilo establecido tanto en 
+  "The Ruby Programming Language" y "Programming Ruby".
 
     ```Ruby
     # mal
@@ -302,7 +333,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
       calc_something_else
     end
 
-    # bien - es aparente qué está pasando
+    # bien - es aparente lo qué está pasando
     kind = case year
            when 1850..1889 then 'Blues'
            when 1890..1909 then 'Ragtime'
@@ -354,6 +385,103 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     end
     ```
 
+* <a name="two-or-more-empty-lines"></a>
+  No uses mas de una linea vacia seguida.
+
+  ```ruby
+  # mal - hay dos lineas vacias seguidas.
+  some_method
+
+
+  some_method
+
+  # bien
+  some_method
+
+  some_method
+  ```
+* <a name="empty-lines-around-access-modifier"></a>
+  Usa lineas vacias alrededor de los modificadores de accesibilidad.
+
+  ```ruby
+  # mal
+  class Foo
+    attr_reader :foo
+    def foo
+      # do something...
+    end
+  end
+
+  # bien
+  class Foo
+    attr_reader :foo
+
+    def foo
+      # do something...
+    end
+  end
+  ```
+
+* <a name="empty-lines-around-bodies"></a>
+  No uses lineas vacias alrededor de métodos, clases, módulos y bloques.
+
+  ```ruby
+  # mal
+  class Foo
+
+    def foo
+
+      begin
+
+        do_something do
+
+          something
+
+        end
+
+      rescue
+
+        something
+
+      end
+
+    end
+
+  end
+
+  # bien
+  class Foo
+    def foo
+      begin
+        do_something do
+          something
+        end
+      rescue
+        something
+      end
+    end
+  end
+  ```
+
+* <a name="no-trailing-params-comma"></a>
+  Evita las comas en el último parametro al llamar un método.
+  Especialmente si los parametros no estan separados por lineas
+
+  ```ruby
+  # mal - Es facil mover, eliminar o agregar parametros, pero aún asi no es recomendado
+  some_method(
+    size,
+    count,
+    color,
+  )
+
+  # mal
+  some_method(size, count, color, )
+
+  # bien
+  some_method(size, count, color)
+  ```
+
 * Usa espacios alrededor del operador `=` cuando asignes valores predeterminados a los
   parámetros del método:
 
@@ -370,8 +498,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     ```
 
     Mientras que varios libros de Ruby sugieren el primer estilo, el segundo es mucho
-    más utilizado en la práctica (y hasta se podría decirse que es un poco más fácil
-    de leer).
+    más utilizado en la práctica (y hasta se podría decir que es más fácil de leer).
 
 * Evita usar la contínuación de línea con '\' cuando no sea necesario. En la práctica, evita el uso de continuación de línea en cualquier caso, excepto para la concatenación de strings.
 
@@ -384,6 +511,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     result = 1 \
              - 2
 
+    # bien - Uso recomendado
     long_string = 'First part of the long string' \
                   ' and second part of the long string'
     ```
@@ -420,7 +548,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
           body: source.text)
     end
 
-    # bien
+    # bien (identado bajo el primer parámetro)
     def send_mail(source)
       Mailer.deliver(to: 'bob@example.com',
                      from: 'us@example.com',
@@ -467,6 +595,25 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     # bien - mucho más fácil de leer por el cerebro humano
     num = 1_000_000
     ```
+* <a name="numeric-literal-prefixes"></a>
+  Usa letras minúsculas para los prefijos de literales numéricos.
+  `0o` para base octal, `0x` para base hexadecimal y `0b` para base binaria.
+  No uses `0d` para numeros decimales.
+
+  ```ruby
+  # mal
+  num = 01234
+  num = 0O1234
+  num = 0X12AB
+  num = 0B10101
+  num = 0D1234
+  num = 0d1234
+
+  # bien - es facil separar los prefijos de los numeros
+  num = 0o1234
+  num = 0x12AB
+  num = 0b10101
+  num = 12
 
 * Usa RDoc y sus convenciones para la documentación de APIs. No dejes
   una línea en blanco entre el bloque de comentario y el `def`.
