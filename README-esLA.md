@@ -212,13 +212,37 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     Otra excepción es el operador slash en los numeros racionales:
 
     ```ruby
-    # bad
+    # mal
     o_scale = 1 / 48r
 
-    # good
+    # bien
     o_scale = 1/48r
     ```
 
+    Otra excepción es el operador de navegación segura :
+    ```ruby
+    # mal
+    foo &. bar
+    foo &.bar
+    foo&. bar
+
+    # bien
+    foo&.bar
+    ```
+
+  * <a name="spaces-braces"></a>
+    No uses espacios después de `(`, `[` o antes de `]`, `)`.
+    Usa espacios despues de `{` and antes de `}`.
+
+    ```ruby
+    # mal
+    some( arg ).other
+    [ 1, 2, 3 ].each{|e| puts e}
+
+    # bien
+    some(arg).other
+    [1, 2, 3].each { |e| puts e }
+    ```
 
     `{` y `}` merecen una aclaración especial, ya que se utilizan
     para bloques y hash literales, así como las expresiones
