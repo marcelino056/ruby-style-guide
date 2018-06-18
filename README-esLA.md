@@ -230,9 +230,9 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     foo&.bar
     ```
 
-  * <a name="spaces-braces"></a>
-    No uses espacios después de `(`, `[` o antes de `]`, `)`.
-    Usa espacios despues de `{` and antes de `}`.
+* <a name="spaces-braces"></a>
+  No uses espacios después de `(`, `[` o antes de `]`, `)`.
+  Usa espacios despues de `{` and antes de `}`.
 
     ```ruby
     # mal
@@ -272,18 +272,6 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
 
     # ok - podría decirse que es más legible
     "string#{ expr }"
-    ```
-
-    El primer estilo es extremadamente más popular y generalmente
-    se aconseja que lo elijas. Por otro lado, el segundo es
-    (posiblemente) un poco más legible. Al igual que con los hashes
-    - escogé un estilo y usalo de forma consistente.
-
-* Sin espacios luego de `(`, `[` o antes de `]`, `)`.
-
-    ```Ruby
-    some(arg).other
-    [1, 2, 3].length
     ```
 
 * Sin espacios luego de `!`.
