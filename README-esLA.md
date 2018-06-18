@@ -198,7 +198,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     [1, 2, 3].each { |e| puts e }
     ```
 
-    La única excepción, con respecto a los operadores, es el operador exponente:
+    Hay algunas excepciones, con respecto a los operadores, uno es el operador exponente:
 
     ```Ruby
     # mal
@@ -207,6 +207,18 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     # bien
     e = M * c**2
     ```
+
+
+    Otra excepción es el operador slash en los numeros racionales:
+
+    ```ruby
+    # bad
+    o_scale = 1 / 48r
+
+    # good
+    o_scale = 1/48r
+    ```
+
 
     `{` y `}` merecen una aclaración especial, ya que se utilizan
     para bloques y hash literales, así como las expresiones
