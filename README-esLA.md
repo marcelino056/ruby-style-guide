@@ -61,10 +61,17 @@ esta guía de estilo.
 
 Traducciones de esta guía están disponibles en los siguientes idiomas:
 
-* [Inglés](https://github.com/bbatsov/ruby-style-guide/blob/master/README.md) (versión original)
+* [Árabe egipto](https://github.com/HassanTC/ruby-style-guide/blob/master/README-EgAr.md)
 * [Chino Simplificado](https://github.com/JuanitoFatas/ruby-style-guide/blob/master/README-zhCN.md)
 * [Chino Tradicional](https://github.com/JuanitoFatas/ruby-style-guide/blob/master/README-zhTW.md)
+* [Coreano](https://github.com/dalzony/ruby-style-guide/blob/master/README-koKR.md)
 * [Francés](https://github.com/porecreat/ruby-style-guide/blob/master/README-frFR.md)
+* [Inglés](https://github.com/bbatsov/ruby-style-guide/blob/master/README.md) (versión original)
+* [Japonés](https://github.com/fortissimo1997/ruby-style-guide/blob/japanese/README.ja.md)
+* [Portugués (pt-BR)](https://github.com/rubensmabueno/ruby-style-guide/blob/master/README-PT-BR.md)
+* [Ruso](https://github.com/arbox/ruby-style-guide/blob/master/README-ruRU.md)
+* [Vietnamita](https://github.com/CQBinh/ruby-style-guide/blob/master/README-viVN.md)
+
 
 ## Tabla de Contenidos
 
