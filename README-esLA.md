@@ -511,6 +511,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     result = 1 \
              - 2
 
+    # bien - Uso recomendado
     long_string = 'First part of the long string' \
                   ' and second part of the long string'
     ```
@@ -547,7 +548,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
           body: source.text)
     end
 
-    # bien
+    # bien (identado bajo el primer parámetro)
     def send_mail(source)
       Mailer.deliver(to: 'bob@example.com',
                      from: 'us@example.com',
@@ -594,6 +595,25 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     # bien - mucho más fácil de leer por el cerebro humano
     num = 1_000_000
     ```
+* <a name="numeric-literal-prefixes"></a>
+  Usa letras minúsculas para los prefijos de literales numéricos.
+  `0o` para base octal, `0x` para base hexadecimal y `0b` para base binaria.
+  No uses `0d` para numeros decimales.
+
+  ```ruby
+  # mal
+  num = 01234
+  num = 0O1234
+  num = 0X12AB
+  num = 0B10101
+  num = 0D1234
+  num = 0d1234
+
+  # bien - es facil separar los prefijos de los numeros
+  num = 0o1234
+  num = 0x12AB
+  num = 0b10101
+  num = 12
 
 * Usa RDoc y sus convenciones para la documentación de APIs. No dejes
   una línea en blanco entre el bloque de comentario y el `def`.
