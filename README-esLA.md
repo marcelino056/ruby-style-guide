@@ -498,8 +498,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
     ```
 
     Mientras que varios libros de Ruby sugieren el primer estilo, el segundo es mucho
-    más utilizado en la práctica (y hasta se podría decirse que es un poco más fácil
-    de leer).
+    más utilizado en la práctica (y hasta se podría decir que es más fácil de leer).
 
 * Evita usar la contínuación de línea con '\' cuando no sea necesario. En la práctica, evita el uso de continuación de línea en cualquier caso, excepto para la concatenación de strings.
 
