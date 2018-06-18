@@ -1677,7 +1677,7 @@ que no utilizar comentarios.
 
 ## Clases y Módulos
 
-* Usa una estructura coherente para definicior tu clase.
+* Usa una estructura coherente para definir tu clase.
 
     ```Ruby
     class Person
@@ -1715,7 +1715,7 @@ que no utilizar comentarios.
     end
     ```
 
-* Elige módules de clases únicamente con métodos de clases. Las clases
+* Elige módulos de clases únicamente con métodos de clases. Las clases
   deben ser utilizadas únicamente cuando tiene sentido crear instancias
   fuera de ellos.
 
@@ -2618,7 +2618,7 @@ propia lógica.
 
 * Evita metaprogramación innecesaria.
 
-* No hagas lío con las clases core cuando estés escribiendo librerías.
+* No hagas lío con las clases core cuando estés escribiendo bibliotecas.
   (No parchees como un mono.)
 
 * La forma de bloque de `class_eval` es preferible en forma de interpolación de string.
