@@ -1642,17 +1642,30 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
     sprintf('%d %d', 20, 10)
     # => '20 10'
 
-    # bien
-    sprintf('%{first} %{second}', first: 20, second: 10)
+    # mejor
+    sprintf('%<first>d %<second>d', first: 20, second: 10)
     # => '20 10'
 
+    # bien
     format('%d %d', 20, 10)
     # => '20 10'
 
-    # bien
-    format('%{first} %{second}', first: 20, second: 10)
+    # mejor
+    format('%<first>d %<second>d', first: 20, second: 10)
     # => '20 10'
     ```
+
+* <a name="named-format-tokens"></a>
+  Cuando usas tokens de nombres, por favor usa `%<name>s` por sobre `%{name}`, porque al momento de referenciarlos
+  estás referenciando el tipo de valor que tomará el token.
+
+  ```ruby
+  # mal
+  format('Hello, %{name}', name: 'John')
+
+  # bien
+  format('Hello, %<name>s', name: 'John')
+  `
 
 * Elige el uso de `Array#join` por sobre el críptico `Array#*` con
   un argumento string.
