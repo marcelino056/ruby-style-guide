@@ -609,7 +609,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
   num = 0D1234
   num = 0d1234
 
-  # bien - es facil separar los prefijos de los numeros
+  # bien - es fácil separar los prefijos de los numeros
   num = 0o1234
   num = 0x12AB
   num = 0b10101
@@ -652,6 +652,23 @@ Nunca uses `::` para la invocación de métodos.
     SomeModule::SomeClass()
     ```
 
+* <a name="colon-method-definition"></a>
+    No uses `::` para definir métodos de clase.
+
+  ```ruby
+  # nal
+  class Foo
+    def self::some_method
+    end
+  end
+
+  # bien
+  class Foo
+    def self.some_method
+    end
+  end
+  ```
+
 * Usa `def` con paréntesis cuando tengas argumentos. Omite los
   paréntesis cuando el método no acepta ningún argumento.
 
@@ -676,6 +693,182 @@ Nunca uses `::` para la invocación de métodos.
        # body omitted
      end
      ```
+
+
+* <a name="method-invocation-parens"></a>
+  Usa paréntesis alrededor de los argumentos para la invocación de un método,
+  especialmente si el primer argumento empieza con un paréntesis abierto `(`,
+  como por ejemplo: `f((3 + 2) + 1)`.
+
+  ```ruby
+  # mal
+  x = Math.sin y
+  # bien
+  x = Math.sin(y)
+
+  # mal
+  array.delete e
+  # bien
+  array.delete(e)
+
+  # mal
+  temperance = Person.new 'Temperance', 30
+  # bien
+  temperance = Person.new('Temperance', 30)
+  ```
+
+  Omite siempre los paréntesis para:
+
+  * Métodos sin argumentos:
+
+    ```ruby
+    # mal
+    Kernel.exit!()
+    2.even?()
+    fork()
+    'test'.upcase()
+
+    # bien
+    Kernel.exit!
+    2.even?
+    fork
+    'test'.upcase
+    ```
+
+  * Métodos que son parte de un DSL interno (por ejemplo: Rake, Rails, RSpec):
+
+    ```ruby
+    # mal
+    validates(:name, presence: true)
+    # bien
+    validates :name, presence: true
+    ```
+
+  * Métodos que son palabras claves en Ruby:
+
+    ```ruby
+    class Person
+      # mal
+      attr_reader(:name, :age)
+      # bien
+      attr_reader :name, :age
+
+      # body omitted
+    end
+    ```
+
+  Puedes omitir los paréntesis para:
+
+  * Métodos que tienen el grado de palabras reservada (`keyword`) en ruby, pero que no declaran nada. Ejemplo:
+
+    ```Ruby
+    # bien
+    puts(temperance.age)
+    system('ls')
+    # bien también
+    puts temperance.age
+    system 'ls'
+    ```
+
+* <a name="optional-arguments"></a>
+    Define los argumentos opcionales de un método, al final de la lista de argumentos.
+    Ruby tiene algunos resultados inesperados cuando los argumentos opcionales estan al principio de la lista de argumentos.
+
+  ```ruby
+  # mal
+  def some_method(a = 1, b = 2, c, d)
+    puts "#{a}, #{b}, #{c}, #{d}"
+  end
+
+  some_method('w', 'x') # => '1, 2, w, x'
+  some_method('w', 'x', 'y') # => 'w, 2, x, y'
+  some_method('w', 'x', 'y', 'z') # => 'w, x, y, z'
+
+  # bien
+  def some_method(c, d, a = 1, b = 2)
+    puts "#{a}, #{b}, #{c}, #{d}"
+  end
+
+  some_method('w', 'x') # => '1, 2, w, x'
+  some_method('w', 'x', 'y') # => 'y, 2, w, x'
+  some_method('w', 'x', 'y', 'z') # => 'y, z, w, x'
+  ```
+
+* <a name="parallel-assignment"></a>
+    Evita el uso de asignaciones en paralelo para la definición de variables. 
+    La asignacion en paralelo es permitida cuando es el resultado de un metodo llamado con anterioridad.
+    Es permitido la asignación en paralelo cuando se usa el operador splat (* antes de una variable) o intercambiar una variable (swap). 
+    La asignacion paralela es mas dificil de leer que una asignación separada.
+
+  ```ruby
+  # mal
+  a, b, c, d = 'foo', 'bar', 'baz', 'foobar'
+
+  # bien
+  a = 'foo'
+  b = 'bar'
+  c = 'baz'
+  d = 'foobar'
+
+  # bien - intercambiando una variable
+  # El Swapping de variables o intercambio de variables es un caso especial
+  # debido a que permite intercambiar el valor de 2 variables
+  a = 'foo'
+  b = 'bar'
+
+  a, b = b, a
+  puts a # => 'bar'
+  puts b # => 'foo'
+
+  # bien - usando el valor de retorno de un metodo
+  # en este caso retorna mas de 1 valor
+  def multi_return
+    [1, 2]
+  end
+
+  first, second = multi_return
+
+  # bien - usando el operador splat (*)
+  first, *list = [1, 2, 3, 4] # first => 1, list => [2, 3, 4]
+
+  hello_array = *'Hello' # => ["Hello"]
+
+  a = *(1..3) # => [1, 2, 3]
+  ```
+
+* <a name="trailing-underscore-variables"></a>
+  Evita el uso innecesario de la variable `_` durante la asignación paralela.
+  Variables nombradas con un guión bajo `_` al principio del nombre son preferidas a solo usar un guión bajo `_`.
+  Usa guión bajo `_` solamente en combinacion con con una variable `splat` definida a lado izquierdo de la asignación
+  y sólo si la variable splat no tiene ningun guión bajo `_` al principio del nombre.
+
+  ```ruby
+  # mal
+  foo = 'one,two,three,four,five'
+  # Asignación Innecesaria. No agrega ninguna información útil
+  first, second, _ = foo.split(',')
+  first, _, _ = foo.split(',')
+  first, *_ = foo.split(',')
+
+
+  # bien
+  foo = 'one,two,three,four,five'
+  # el guión bajo es necesario para mostrar que se quiere obtener 
+  # todos los elementos exceptuando el último
+  *beginning, _ = foo.split(',')
+  *beginning, something, _ = foo.split(',')
+
+  # sólo el primer elemento
+  a, = foo.split(',')
+  # sólo los 2 primeros elementos
+  a, b, = foo.split(',')
+
+  # Asignación innecesaria en una variable que no se usará, pero 
+  # esta asignación provee unformación útil
+  first, _second = foo.split(',')
+  first, _second, = foo.split(',')
+  first, *_ending = foo.split(',')
+  ```
 
 * Nunca uses `for`, a menos que sepas exactamente para qué lo usás. En su
   lugar deberías usar los iteradores la mayor parte del tiempo. `for` se
