@@ -1288,7 +1288,7 @@ Nunca uses `::` para la invocación de métodos.
     end.map { |name| name.upcase }
 
     # bien
-    names.select { |name| name.start_with?('S') }.map { |name| name.upcase }
+    names.select { |name| name.start_with?('S') }.map(&:upcase)
     ```
 
     Puede ser que algunas personas piensen que el encadenamiento en multilínea se vería bien con
