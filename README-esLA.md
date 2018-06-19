@@ -1463,6 +1463,21 @@ pasaría si el valor actual fuese `false`.)
     (1..100).include?(7)
     some_string =~ /something/
     ```
+* <a name="eql"></a>
+  No uses `eql?` cuando puedes usar `==`. 
+  El comparador de semantica estricto ofrecido por `eql?` 
+  es raramente necesitado en la práctica.
+
+  ```ruby
+  # mal - eql? es lo mismo que == para strings
+  'ruby'.eql? some_str
+
+  # bien
+  'ruby' == some_str
+
+  # eql? tiene sentido aqui, si se quiere diferenciar entre Integer y Float 1
+  1.0.eql? x 
+  ```
 
 * Evita usar variables especiales de tipo Perl (como `$:`, `$;`, etc.). Son bastante crípticas y su uso en cualquier lugar excepto scripts de una línea está desalentado. Usa los alias amigables para humanos proporcionados por la librería `English`.
 
