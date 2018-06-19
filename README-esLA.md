@@ -1507,6 +1507,37 @@ pasaría si el valor actual fuese `false`.)
 * Siempre ejecutá el intérprete de Ruby con la opción `-w`, para que
 avise si se olvida alguna de las reglas anteriores!
 
+* <a name="no-nested-methods"></a>
+  No uses métodos anidados, mejor usa las funciones lambda.
+  Los métodos anidados actualmente producen métodos en el mismo ámbito (ejemplo: clases)
+  Ademas el método anidado será redefinido cada vez que se llame al metodo que lo contiene.
+
+  ```ruby
+  # mal
+  def foo(x)
+    def bar(y)
+      # body omitted
+    end
+
+    bar(x)
+  end
+
+  # bien - aunque es igual a lo anterior, la mejora es que 'bar' no será redefinido cada vez que se llame 'foo'
+  def bar(y)
+    # body omitted
+  end
+
+  def foo(x)
+    bar(x)
+  end
+
+  # bien tambíen
+  def foo(x)
+    bar = ->(y) { ... }
+    bar.call(x)
+  end
+  ``
+
 * Usa la nueva sintaxis de lambda literal para bloques de una sola línea.
   Usa el método `lambda` para bloques multilínea.
 
@@ -1521,10 +1552,11 @@ avise si se olvida alguna de las reglas anteriores!
       tmp * b / 50
     end
 
-    # bien
+    # bien - una sola linea
     l = ->(a, b) { a + b }
     l.call(1, 2)
 
+    # bien - bloque multilinea
     l = lambda do |a, b|
       tmp = a * 7
       tmp * b / 50
