@@ -1384,6 +1384,26 @@ Nunca uses `::` para la invocación de métodos.
       ...
     end
     ```
+* <a name="self-assignment"></a>
+  Usa las abreviaturas para asignar valores después de una operación.
+
+  ```ruby
+  # mal
+  x = x + y
+  x = x * y
+  x = x**y
+  x = x / y
+  x = x || y
+  x = x && y
+
+  # bien
+  x += y
+  x *= y
+  x **= y
+  x /= y
+  x ||= y
+  x &&= y
+  ```
 
 * Usa `||=` libremente para inicializar variables.
 
