@@ -1408,7 +1408,7 @@ Nunca uses `::` para la invocación de métodos.
 * Usa `||=` libremente para inicializar variables.
 
     ```Ruby
-    # set name to Bozhidar, only if it's nil or false
+    # asigna el nombre Bozhidar, solo si la variable 'name' es nil o false
     name ||= 'Bozhidar'
     ```
 
