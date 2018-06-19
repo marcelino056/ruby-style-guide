@@ -986,13 +986,13 @@ Nunca uses `::` para la invocación de métodos.
     ```Ruby
     # mal
     x = 'test'
-    # obscure nil check
+    # Analizando si la variable es nil
     if !!x
       # body omitted
     end
 
     x = false
-    # double negation is useless on booleans
+    # La doble negación no funciona con variables boleanas
     !!x # => false
 
     # bien
@@ -1040,10 +1040,40 @@ Nunca uses `::` para la invocación de métodos.
     do_something if some_condition
 
     # otra buena opción
+    # Usando control de flujos
     some_condition && do_something
     ```
 
-* Favorecé `unless` por sobre `if` para condiciones negativas (o control
+* <a name="no-multiline-if-modifiers"></a>
+  Evita el uso de modificadores `if`/`unless` al final de un bloque que se compone con mas de una lineal.
+
+  ```ruby
+  # mal
+  10.times do
+    # multi-line body omitted
+  end if some_condition
+
+  # bien
+  if some_condition
+    10.times do
+      # multi-line body omitted
+    end
+  end
+  ```
+
+* <a name="no-nested-modifiers"></a>
+  Evita el sudo de modificadores `if`/`unless`/`while`/`until` de forma anidada. 
+  Mejor usa apropiadamente `&&`/`||` if.
+
+  ```ruby
+  # mal
+  do_something if other_condition if some_condition
+
+  # bien
+  do_something if some_condition && other_condition
+  ```
+
+* Favorece `unless` por sobre `if` para condiciones negativas (o control
   de flujo con `||`).
 
     ```Ruby
@@ -1057,6 +1087,7 @@ Nunca uses `::` para la invocación de métodos.
     do_something unless some_condition
 
     # otra buena opción
+    # Usando control de flujos
     some_condition || do_something
     ```
 
@@ -1092,7 +1123,7 @@ Nunca uses `::` para la invocación de métodos.
     end
     ```
 
-* Nunca uses `while/until condition do` para un `while/until` multilínea.
+* Nunca uses `while/until` condition `do` para un `while/until` multilínea.
 
     ```Ruby
     # mal
@@ -1137,8 +1168,28 @@ Nunca uses `::` para la invocación de métodos.
     do_something until some_condition
     ```
 
+* <a name="infinite-loop"></a>
+  Usa `Kernel#loop` en vez de `while/until` cuando necesites un ciclo infinito.
+
+    ```ruby
+    # mal
+    while true
+      do_something
+    end
+
+    until false
+      do_something
+    end
+
+    # bien
+    loop do
+      do_something
+    end
+    ```
+
+
 * Usa `Kernel#loop` con break en lugar de `begin/end/until` o `begin/end/while`
-  para validar al final de cada loop.
+  para validar al final de cada ciclo.
 
    ```Ruby
    # mal
@@ -1203,21 +1254,16 @@ Nunca uses `::` para la invocación de métodos.
     end
     ```
 
-* Omite los paréntesis para llamadas a métodos sin argumentos.
+* <a name="single-action-blocks"></a>
+  Usa la invocación de procesos cuando solo realices una operacion en un bloque
 
-    ```Ruby
-    # mal
-    Kernel.exit!()
-    2.even?()
-    fork()
-    'test'.upcase()
+  ```ruby
+  # mal
+  names.map { |name| name.upcase }
 
-    # bien
-    Kernel.exit!
-    2.even?
-    fork
-    'test'.upcase
-    ```
+  # bien
+  names.map(&:upcase)
+  ```
 
 * Elige `{...}` por sobre `do...end` para bloques de una línea. Evita
   el uso de `{...}` para bloques multilíneas (encadenamiento de multilínea
