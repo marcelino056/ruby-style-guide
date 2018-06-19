@@ -1741,6 +1741,24 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
     end
     ```
 
+* <a name="no-non-nil-checks"></a>
+  No uses explicitamente no-`nil` para validar una variable, 
+  a menos que estés tratando con variables boleanas.
+
+    ```ruby
+    # mal
+    do_something if !something.nil?
+    do_something if something != nil
+
+    # bien
+    do_something if something
+
+    # bien - solo si se está seguro de que la variable es boleana
+    def value_set?
+      !@some_boolean.nil?
+    end
+    ```
+
 * Evita el uso de bloques `BEGIN`.
 
 * Nunca uses bloques `END`. En su lugar usá `Kernel#at_exit`.
