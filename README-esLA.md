@@ -1562,6 +1562,27 @@ avise si se olvida alguna de las reglas anteriores!
       tmp * b / 50
     end
     ```
+* <a name="stabby-lambda-with-args"></a>
+  No omitas los parentesis cuando estas definiendo una función lambda que utiliza parámetros.
+
+  ```ruby
+  # mal
+  l = ->x, y { something(x, y) }
+
+  # bien
+  l = ->(x, y) { something(x, y) }
+  ```
+
+* <a name="stabby-lambda-no-args"></a>
+  Omite los paréntesis si tu función lambda no necesita parámetros.
+
+  ```ruby
+  # mal
+  l = ->() { something }
+
+  # bien
+  l = -> { something }
+  ```
 
 * Elige `proc` por sobre `Proc.new`.
 
