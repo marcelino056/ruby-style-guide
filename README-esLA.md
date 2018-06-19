@@ -1423,6 +1423,30 @@ pasaría si el valor actual fuese `false`.)
     enabled = true if enabled.nil?
     ```
 
+* <a name="double-amper-preprocess"></a>
+  Usa `&&=` para preprocesar variables que pueden no existir.
+  Usando `&&=` cambiarás el valor de la variable, solo si existe, 
+  eliminando la necesidad de comprobar su existencia usando un `if`.
+
+  ```ruby
+  # mal
+  if something
+    something = something.downcase
+  end
+
+  # mal
+  something = something ? something.downcase : nil
+
+  # ok
+  something = something.downcase if something
+
+  # bien
+  something = something && something.downcase
+
+  # mejor
+  something &&= something.downcase
+  ```
+
 * Evita el uso explícito del operador de igualdad idéntica `===`.
   Como su nombre indica, está destinado a ser utilizado
   implícitamente por expresiones `case` y fuera de ellas provee
