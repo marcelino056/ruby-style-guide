@@ -2124,9 +2124,7 @@ que no utilizar comentarios.
 > -- Russ Olsen
 
 * Evita escribir comentarios para explicar código malo. Refactorizá el código
-  para hacerlo más auto-explicativo. ()
-* Avoid writing comments to explain bad code. Refactor the code to
-  make it self-explanatory. (Hacé o no hacé - no hay intentar. --Yoda)
+  para hacerlo más auto-explicativo. (Hazlo o no lo hagas - no hay intentos. --Yoda)
 
 ### Apuntes de Comentarios
 
