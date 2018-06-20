@@ -2490,6 +2490,35 @@ o mutators.
     end
     ```
 
+* <a name="accessor_mutator_method_names"></a>
+  Pra los `accessors` y `mutators`, evita usar prefijos como `get_` and `set_` en los nombres de funciones.
+  Es una convención en Ruby usar el nombre del atributo (`attr_name`) para las funciones de tipo (readers) y 
+  `attr_name=` para mutators (writers).
+
+  ```ruby
+  # mal
+  class Person
+    def get_name
+      "#{@first_name} #{@last_name}"
+    end
+
+    def set_name(name)
+      @first_name, @last_name = name.split(' ')
+    end
+  end
+
+  # bien
+  class Person
+    def name
+      "#{@first_name} #{@last_name}"
+    end
+
+    def name=(name)
+      @first_name, @last_name = name.split(' ')
+    end
+  end
+  ```
+
 * Evita el uso de `attr`. En su lugar usá `attr_reader` y `attr_accessor`.
 
     ```Ruby
