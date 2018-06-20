@@ -2439,9 +2439,9 @@ que no utilizar comentarios.
 * Cuando diseñes jerarquías de clases, asegurate de que se ajuseten al
   [Principio de Sustitución de Liskov](http://es.wikipedia.org/wiki/Principio_de_sustituci%C3%B3n_de_Liskov).
 * Tratá de hacer tus clases tan
-  [SOLID](http://es.wikipedia.org/wiki/SOLID_(object-oriented_design))as
+  [SOLID](http://es.wikipedia.org/wiki/SOLID_(object-oriented_design))
   como sea posible.
-* Siempre proporcioná un método `to_s` para clases que representen
+* Siempre proporciona un método `to_s` para clases que representen
   objetos de dominio.
 
     ```Ruby
