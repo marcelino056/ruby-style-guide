@@ -2691,6 +2691,98 @@ de crear instancias de una clase en particular.
     end
     ```
 
+* <a name="alias-method-lexically"></a>
+  Ten encuenta que el uso de `alias` alcanza a los Métodos que estan dentro de la clase 
+  al igual que el uso de `self`. Communica claramente a el usuario que el desvío realizado por
+  tu alias no alterará a la Clase en tiempo de ejecución ni a las Subclases a menos que se haga de 
+  forma explícita..
+
+  ```ruby
+  class Westerner
+    def first_name
+      @names.first
+    end
+
+    alias given_name first_name
+  end
+  ```
+
+  Desde que `alias`, al igual que `def`, es una palabra reservada 
+  úsala preferentemente con palabras normales como argumentos, no con símbolos
+  o Strings. Ejemplo. usa `alias foo bar`, not `alias :foo :bar`.
+
+  De igual forma ten cuidado en como Ruby maneja los Alias en conjunto con la Herencia.
+  Un alias hace referencia al método para el cual fué definido en el tiempo en el que dicho alias fué creado
+  y no funcionará dinamicamente
+
+  ```ruby
+  class Fugitive < Westerner
+    def first_name
+      'Nobody'
+    end
+  end
+  ```
+
+  En el ejemplo de arriba `Fugitive#given_name` podría seguir llamando 
+  al Método original de su clase padre `Westerner#first_name` y no a `Fugitive#first_name`. 
+  Para sobreescribir también el comportamiento de `Fugitive#given_name`, tu tendrías que 
+  redefinir también el alias en la clase `Fugitive`, como sigue a continuación.
+
+  ```ruby
+  class Fugitive < Westerner
+    def first_name
+      'Nobody'
+    end
+
+    alias given_name first_name
+  end
+  ```
+
+* <a name="alias-method"></a>
+  Siempre usa `alias_method` cuando quieres renombrar los Métodos de 
+  un Módulo, Clases o Clases Singleton en tiempo de ejecución, 
+  de lo contrario al igual que `alias` podría conducir a casos imprevistos.
+
+  ```ruby
+  module Mononymous
+    def self.included(other)
+      other.class_eval { alias_method :full_name, :given_name }
+    end
+  end
+
+  class Sting < Westerner
+    include Mononymous
+  end
+  ```
+
+* <a name="class-and-self"></a>
+  Cuando el methodo de  una clase (o Módulo) llama a otros Métodos del mismo tipo, 
+  se omite el uso de `self` o el uso del propio nombre de la Clase seguido por un `.`. 
+  Esto se ve muy a menudo en "Clases de Servicio" o en otros conceptos similares
+  donde la Clase se trata como si fuera una función. Esta convencion tiende a 
+  reducir la repetitividad en este tipo de clases.
+
+  ```ruby
+  class TestClass
+    # mal -- Pues esta forma genera mucho trabajo cuando la Clase es renombrada o un Métdodo es movido
+    def self.call(param1, param2)
+      TestClass.new(param1).call(param2)
+    end
+
+    # mal -- mas verbose que no son necesarios
+    def self.call(param1, param2)
+      self.new(param1).call(param2)
+    end
+
+    # bien
+    def self.call(param1, param2)
+      new(param1).call(param2)
+    end
+
+    # ...other methods...
+  end
+  ```
+
 ## Excepciones
 
 * Señaliza las excepciones utilizando el método `fail`. Usa `raise`
