@@ -1991,6 +1991,44 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
   valor booleano) deben terminar con un signo de pregunta.
   (ejemplo: `Array#empty?`). Los métodos que no devuelvan un booleano,
   no deben terminar con un signo de pregunta.
+
+* <a name="bool-methods-prefix"></a>
+  Evita usar prefijos auxiliares como (`is`, `does`, or `can`) para los nombres de Métodos.
+  Estas palabras son redundantes e inconsistentes con el estilo de Métodos boleanos que hay en Ruby core library, 
+  como por ejemplo `empty?` o `include?`.
+
+  ```ruby
+  # mal
+  class Person
+    def is_tall?
+      true
+    end
+
+    def can_play_basketball?
+      false
+    end
+
+    def does_like_candy?
+      true
+    end
+  end
+
+  # bien
+  class Person
+    def tall?
+      true
+    end
+
+    def basketball_player?
+      false
+    end
+
+    def likes_candy?
+      true
+    end
+  end
+  ```
+
 * Los nombres de métodos potencialmente *peligrosos* (ejemplo: métodos
   que modifican `self` o los argumentos, `exit!` - no ejecuta
   finalizadores como lo hace `exit`, etc.) deben terminar con un signo
