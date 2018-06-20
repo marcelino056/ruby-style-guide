@@ -1821,13 +1821,17 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
 
 
 * <a name="map-find-select-reduce-size"></a>
-  Prefiere `map` por sobre `collect`, `find` por sobre `detect`, `select` por sobre `find_all`,
-  `reduce` por sobre `inject` y `size` por sobre `length`. 
+* Elige `map` por sobre `collect`, `find` por sobre `detecet`, `select`
+  por sobre `find_all`, `reduce` por sobre `inject` y `size` por sobre
+  `length`. No es un requerimiento difícil; si el uso de alias realza
+  la legibilidad, está bien usarlos. Los métodos de rima son heredados
+  de Smalltalk y no son comunes en otros lenguajes de programación. La
+  razón para usar `select` por sobre `find_all` es porque va muy bien
+  junto con `reject` y su nombre es bastante auto-explicativo.
 
 * <a name="count-vs-size"></a>
   No uses `count` como sustituto de `size`. Para los objetos de tipo `Enumerable`, pues
   el objeto completo se iterará para saber el numero de elementos.
-<sup>[[link](#count-vs-size)]</sup>
 
   ```ruby
   # mal
@@ -2089,40 +2093,6 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
     def +(other)
       # body omitted
     end
-    ```
-
-* Elige `map` por sobre `collect`, `find` por sobre `detecet`, `select`
-  por sobre `find_all`, `reduce` por sobre `inject` y `size` por sobre
-  `length`. No es un requerimiento difícil; si el uso de alias realza
-  la legibilidad, está bien usarlos. Los métodos de rima son heredados
-  de Smalltalk y no son comunes en otros lenguajes de programación. La
-  razón para usar `select` por sobre `find_all` es porque va muy bien
-  junto con `reject` y su nombre es bastante auto-explicativo.
-
-* Usa `flat_map` en lugar de `map` + `flatten`.
-  Esto no se aplica a los arrays con profundidad mayor a 2, ejemplo:
-  si tenemos `users.first.songs == ['a', ['b','c']]`, entonces hay que
-  usar `map + flatten` en lugar de `flat_map`. `flat_map` achata el
-  array a 1 nivel, mientras que `flatten` achata el array del todo.
-
-    ```Ruby
-    # mal
-    all_songs = users.map(&:songs).flatten.uniq
-
-    # bien
-    all_songs = users.flat_map(&:songs).uniq
-    ```
-
-* Usa `reverse_each` en lugar de `reverse.each`. `reverse_each` no
-  realiza una asignación de array y eso es algo bueno.
-
-
-    ```Ruby
-    # mal
-    array.reverse.each { ... }
-
-    # bien
-    array.reverse_each { ... }
     ```
 
 ## Comentarios
