@@ -2756,20 +2756,22 @@ de crear instancias de una clase en particular.
   ```
 
 * <a name="class-and-self"></a>
-  Cuando el methodo de  una clase (o Módulo) llama a otros Métodos del mismo tipo, 
-  se omite el uso de `self` o el uso del propio nombre de la Clase seguido por un `.`. 
+  Cuando el Método de  una clase (o Módulo) llama a otros Métodos del mismo tipo, 
+  se omite el uso de `self` o el uso del propio nombre de la Clase seguido por un `.` 
+  
   Esto se ve muy a menudo en "Clases de Servicio" o en otros conceptos similares
   donde la Clase se trata como si fuera una función. Esta convencion tiende a 
   reducir la repetitividad en este tipo de clases.
 
   ```ruby
   class TestClass
-    # mal -- Pues esta forma genera mucho trabajo cuando la Clase es renombrada o un Métdodo es movido
+    # mal -- Pues esta forma genera mucho trabajo 
+    #        cuando la Clase es renombrada o un Métdodo es movido
     def self.call(param1, param2)
       TestClass.new(param1).call(param2)
     end
 
-    # mal -- mas verbose que no son necesarios
+    # mal -- mas palabras, que no son necesarias
     def self.call(param1, param2)
       self.new(param1).call(param2)
     end
