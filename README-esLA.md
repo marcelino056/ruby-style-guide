@@ -2553,6 +2553,15 @@ o mutators.
 
 * No extiendas un `Struct.new` - ya de por si es una clase nueva. Extendiéndolo introduce un nivel de clase superfluo y también puede introducir errores extraños si el archivo es requerido múltiples veces.
 
+  ```ruby
+  # mal
+  class Person < Struct.new(:first_name, :last_name)
+  end
+
+  # bien
+  Person = Struct.new(:first_name, :last_name)
+  ```
+
 * Considera agregar un método factory para proveer más formas sensibles
 de crear instancias de una clase en particular.
 
