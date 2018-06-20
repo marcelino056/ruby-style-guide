@@ -3071,13 +3071,19 @@ elementos.
     arr[100] = 1 # y así tenés un array con un montón de nils
     ```
 
-* Cuando estés accediendo al primer o último elmento de un array, preferí
-usar `first` o `last` en lugar de `[0]` o `[-1]`.
+* Cuando estés accediendo al primer o último elmento de un array, prefiere
+   usar `first` o `last` en lugar de `[0]` o `[-1]`.
 
 * Usa `Set` en lugar de `Array` cuando estés tratando con elementos
   únicos. `Set` implementa una colección de valores desordenados sin
   duplicados. Esto es un híbrido de la vacilidad interoperacional
   intuitiva de `Array`, y velocidad de lectura de `Hash`.
+
+    ```ruby
+    require 'set'
+    s = Set.new [4,1,1,1,2] # => #<Set: {4, 1, 2}>
+    ```
+
 * Prefiere símbolos en lugar de strings y hash keys.
 
     ```ruby
