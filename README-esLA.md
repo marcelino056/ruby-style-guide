@@ -1958,6 +1958,25 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
     end
     ```
 
+* <a name="snake-case-files"></a>
+  Usa `snake_case` para nombrar archivos, ejemplo. `hello_world.rb`.
+
+* <a name="snake-case-dirs"></a>
+  Usa `snake_case` para nombrar directorios, ejemplo.
+  `lib/hello_world/hello_world.rb`.
+
+* <a name="one-class-per-file"></a>
+  Trata de tener solo una Clase o Módulo por archivo fuente. Nombra el archivo con el nombre
+  de la Clase o Módulo, pero reemplazando el nombre de `CamelCase` a `snake_case`.
+  ejemplo. `some_class.rb`
+
+    ```Ruby
+    # bien
+    class SomeClass
+      # No body
+    end
+    ```  
+
 * Usa `SCREAMING_SNAKE_CASE` para las constantes.
 
     ```Ruby
