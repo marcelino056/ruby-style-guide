@@ -3131,6 +3131,23 @@ elementos.
     hash.value?(value)
     ```
 
+* <a name="hash-each"></a>
+  Usa `Hash#each_key` en vez de `Hash#keys.each` y 
+  `Hash#each_value` en vez de `Hash#values.each`.
+
+  ```ruby
+  # bad
+  hash.keys.each { |k| puts k }
+  hash.values.each { |v| puts v }
+  hash.each { |k, _v| puts k }
+  hash.each { |_k, v| puts v }
+
+  # good
+  hash.each_key { |k| puts k }
+  hash.each_value { |v| puts v }
+  ```
+
+
 * Usa `Hash#fetch` cuando estés tratando con hash keys que deben estar
 presentes.
 
