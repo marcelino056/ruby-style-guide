@@ -2765,13 +2765,13 @@ de crear instancias de una clase en particular.
 
   ```ruby
   class TestClass
-    # mal -- Pues esta forma genera mucho trabajo 
+    # mal - Pues esta forma genera mucho trabajo 
     #        cuando la Clase es renombrada o un Métdodo es movido
     def self.call(param1, param2)
       TestClass.new(param1).call(param2)
     end
 
-    # mal -- mas palabras, que no son necesarias
+    # mal - mas palabras, que no son necesarias
     def self.call(param1, param2)
       self.new(param1).call(param2)
     end
@@ -3004,6 +3004,21 @@ ensure.
       f.close unless f.nil?
     end
     ```
+
+* <a name="auto-release-resources"></a>
+  Usa versionesde Méetodos de recursos que automaticamente limpian cuando es posible.
+
+  ```ruby
+  # mal - tu debes cerrar especificamente el archivo
+  f = File.open('testfile')
+  # some action on the file
+  f.close
+
+  # bien - El archivo se cerrará automaticamente
+  File.open('testfile') do |f|
+    # some action on the file
+  end
+  ```
 
 * Prefiere el uso de excepciones de la standard library en lugar
 de crear nuevas clases de excepciones.
