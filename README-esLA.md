@@ -2166,6 +2166,78 @@ que no utilizar comentarios.
 * Usa otra palabra como apunte si sentís que sea apropiado, pero asegurate
   de documentarlas en el `README` de tu proyecto o similar.
 
+
+### Comentarios mágicos (Magic Comments)
+
+* <a name="magic-comments-first"></a>
+  Posiciona un comentario mágico sobre todo el código y la documentacion de un archivo 
+  (exeptuando los [[Shebangs](https://es.wikipedia.org/wiki/Shebang)], hablaremos de ellos mas adelante).
+
+  ```ruby
+  # mal
+  # Some documentation about Person
+
+  # frozen_string_literal: true
+  class Person
+  end
+
+  # bien
+  # frozen_string_literal: true
+
+  # Some documentation about Person
+  class Person
+  end
+  ```
+
+* <a name="below-shebang"></a>
+  Posiciona un comentario mágico por debajo del `shebangs` si hay alguno presente en el archivo.
+
+  ```ruby
+  # mal
+  # frozen_string_literal: true
+  #!/usr/bin/env ruby
+
+  App.parse(ARGV)
+
+  # bien
+  #!/usr/bin/env ruby
+  # frozen_string_literal: true
+
+  App.parse(ARGV)
+  ```
+
+* <a name="one-magic-comment-per-line"></a>
+  Usa un comentario mágico por linea, si necesitas usar mas de uno.
+
+  ```ruby
+  # mal
+  # -*- frozen_string_literal: true; encoding: ascii-8bit -*-
+
+  # bien
+  # frozen_string_literal: true
+  # encoding: ascii-8bit
+  ```
+
+* <a name="separate-magic-comments-from-code"></a>
+  Separa los comentarios mágicos del resto del código o de la documentacion usando una linea blanca.
+
+  ```ruby
+  # mal
+  # frozen_string_literal: true
+  # Some documentation for Person
+  class Person
+    # Some code
+  end
+
+  # bien
+  # frozen_string_literal: true
+
+  # Some documentation for Person
+  class Person
+    # Some code
+  end
+  ```
+
 ## Clases y Módulos
 
 * Usa una estructura coherente para definir tu clase.
