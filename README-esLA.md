@@ -1802,6 +1802,68 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
       end
     ```
 
+  Prefiere `next` en los ciclos (loop) en vez de bloques condicionales.
+
+  ```ruby
+  # mal
+  [0, 1, 2, 3].each do |item|
+    if item > 1
+      puts item
+    end
+  end
+
+  # bien
+  [0, 1, 2, 3].each do |item|
+    next unless item > 1
+    puts item
+  end
+  ```
+
+
+* <a name="map-find-select-reduce-size"></a>
+  Prefiere `map` por sobre `collect`, `find` por sobre `detect`, `select` por sobre `find_all`,
+  `reduce` por sobre `inject` y `size` por sobre `length`. 
+
+* <a name="count-vs-size"></a>
+  No uses `count` como sustituto de `size`. Para los objetos de tipo `Enumerable`, pues
+  el objeto completo se iterará para saber el numero de elementos.
+<sup>[[link](#count-vs-size)]</sup>
+
+  ```ruby
+  # mal
+  some_hash.count
+
+  # bien
+  some_hash.size
+  ```
+
+* <a name="flat-map"></a>
+  Usa `flat_map` en vez de `map` + `flatten`.  Esto no se aplica para arrays con una 
+  profundidad mayor a 2, por ejemplo.  Si `users.first.songs == ['a', ['b',['c']]]`,
+  entonces usa `map + flatten` en lugar de `flat_map`. `flat_map` aplana el array con profundidad 1, 
+  mientras que `flatten` lo aplana completamente.
+
+  ```ruby
+  # mal
+  all_songs = users.map(&:songs).flatten.uniq
+
+  # bien
+  all_songs = users.flat_map(&:songs).uniq
+  ```
+
+* <a name="reverse-each"></a>
+  Prefiere `reverse_each` to `reverse.each` porque algunas clases que incluyen `Enumerable` 
+  pueden proveer una implementacion eficiente. Incluso en el peor caso si la clase no implementa una mejora
+  the general desde `Enumerable` será tan eficiente como `reverse.each`.
+
+  ```ruby
+  # mal
+  array.reverse.each { ... }
+
+  # bien
+  array.reverse_each { ... }
+
+
 ## Nombres
 
 > Las únicas dificultades reales en programación son invalidación de
