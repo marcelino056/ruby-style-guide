@@ -3104,6 +3104,17 @@ elementos.
     # bien
     hash = { one: 1, two: 2, three: 3 }
     ```
+* <a name="no-mixed-hash-syntaces"></a>
+  No mezcles la sintaxis de Ruby 1.9 con las flechas de hash en la misma definicion de hash
+  Usa las flechas solamente cuando la clave del hash no es un Símbolo.
+
+  ```ruby
+  # mal
+  { a: 1, 'b' => 2 }
+
+  # bien
+  { :a => 1, 'b' => 2 }
+  ```
 
 * Usa `Hash#key?` en lugar de `Hash#has_key?` y `Hash#value?` en lugar de
   `Hash#has_value?`. Como dice Matz
