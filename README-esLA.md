@@ -1882,6 +1882,28 @@ claro, `warn` te permite suprimir advertencias si lo necesitás
     # bien
     salary = 1_000
     ```
+* <a name="snake-case-symbols-methods-vars-with-numbers"></a>
+  No separes lo números de las letras, símbolos, métodos o variables.
+
+  ```ruby
+  # mal
+  :some_sym_1
+
+  some_var_1 = 1
+
+  def some_method_1
+    # some code
+  end
+
+  # bien
+  :some_sym1
+
+  some_var1 = 1
+
+  def some_method1
+    # some code
+  end
+  ```
 
 * Usa `snake_case` para los símbolos, métodos y variables.
 
