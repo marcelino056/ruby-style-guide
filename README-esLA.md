@@ -2531,8 +2531,9 @@ o mutators.
     attr_reader :one, :two, :three
     ```
 
-* Considera usar `Struct.new`, el cual define por vos los accesores
-triviales, constructor y operadores de comparación.
+* Considera usar un `Struct.new` para definir una clase.
+  `Struct.new` define por ti los accesores triviales, 
+  constructor y operadores de comparación.
 
     ```Ruby
     # bien
@@ -2545,7 +2546,7 @@ triviales, constructor y operadores de comparación.
       end
     end
 
-    # mejor
+    # mucho mejor
     Person = Struct.new(:first_name, :last_name) do
     end
     ````
