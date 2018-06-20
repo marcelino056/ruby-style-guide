@@ -80,6 +80,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
 * [Nombres](#nombres)
 * [Comentarios](#comentarios)
     * [Apuntes de Comentarios](#apuntes-de-comentarios)
+    + [Comentarios mágicos](#comentarios-magicos)
 * [Clases](#clases-y-m%C3%B3dulos)
 * [Excepciones](#excepciones)
 * [Colecciones](#colecciones)
