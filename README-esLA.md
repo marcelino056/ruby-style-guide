@@ -2279,9 +2279,106 @@ que no utilizar comentarios.
     end
     ```
 
-* Elige módulos de clases únicamente con métodos de clases. Las clases
-  deben ser utilizadas únicamente cuando tiene sentido crear instancias
-  fuera de ellos.
+* <a name="mixin-grouping"></a>
+  Separa multiples `mixins` con multiples declaraciones (lineas separadas).
+
+  ```ruby
+  # mal
+  class Person
+    include Foo, Bar
+  end
+
+  # bien
+  class Person
+    # multiple mixins go in separate statements
+    include Foo
+    include Bar
+  end
+  ```
+
+* <a name="file-classes"></a>
+  No anides Clases multilineales dentro de otra Clase.
+  Intenta separar cada una en diferentes archivos dentro de una carpeta
+  que se llame como la Clase en la que quieres anidarlas.
+  Ejemplo.
+
+  ```ruby
+  # mal
+
+  # foo.rb
+  class Foo
+    class Bar
+      # 30 methods inside
+    end
+
+    class Car
+      # 20 methods inside
+    end
+
+    # 30 methods inside
+  end
+
+  
+
+  # bien
+
+  # foo.rb
+  class Foo
+    # 30 methods inside
+  end
+
+  # foo/bar.rb
+  class Foo
+    class Bar
+      # 30 methods inside
+    end
+  end
+
+  # foo/car.rb
+  class Foo
+    class Car
+      # 20 methods inside
+    end
+  end
+  ```
+
+* <a name="namespace-definition"></a>
+  Define (y vuelve a abrir) las Clases y Módulos del Namespace utilizando un anidamiento específico.
+  Usando el operador de resolucion de alcance `::` puedes conducir a sorprendentes busquedas de constantes debido al alcance léxico de Ruby
+  [lexical scoping](https://cirw.in/blog/constant-lookup.html), que depende del Módulo que se anida desde  el punto de la definición.
+  Ejemplo.
+
+  ```ruby
+  module Utilities
+    class Queue
+    end
+  end
+
+  # mal
+  class Utilities::Store
+    Module.nesting # => [Utilities::Store]
+
+    def initialize
+      # Refers to the top level ::Queue class because Utilities isn't in the
+      # current nesting chain.
+      @queue = Queue.new
+    end
+  end
+
+  # bien
+  module Utilities
+    class WaitingList
+      Module.nesting # => [Utilities::WaitingList, Utilities]
+
+      def initialize
+        @queue = Queue.new # Refers to Utilities::Queue
+      end
+    end
+  end
+  ```
+
+* Prefiere los módulos a las clases que únicamente  tienen métodos de clases. 
+  Las clases deben ser utilizadas únicamente cuando tiene sentido crear instancias fuera de ellas.
 
     ```Ruby
     # mal
