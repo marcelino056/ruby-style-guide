@@ -3147,7 +3147,6 @@ elementos.
   hash.each_value { |v| puts v }
   ```
 
-
 * Usa `Hash#fetch` cuando estés tratando con hash keys que deben estar
 presentes.
 
@@ -3167,10 +3166,12 @@ propia lógica.
    ```ruby
    batman = { name: 'Bruce Wayne', is_evil: false }
 
-   # mal - si solo usamos el operador || y tenemos un error medio falso, no vamos a tener el resultado esperado
+   # mal - si solo usamos el operador || y tenemos valor falso, no vamos a tener el resultado esperado
    batman[:is_evil] || true # => true
 
-   # bien - fetch trabaja mejor con valores medio falsos
+   # bien - fetch trabaja mejor con valores falsos
+   #        si la variable no está definida, obtienes el valor por defecto, en este caso true
+   #        si la variable está definida, obtienes el valor de la variable, en este caso false 
    batman.fetch(:is_evil, true) # => false
    ```
 
@@ -3187,8 +3188,53 @@ propia lógica.
    batman.fetch(:powers) { get_batman_powers }
    ```
 
-* Confiá en el hecho de que desde Ruby 1.9 los hashes están ordenados.
+* <a name="hash-values-at"></a>
+  Usa `Hash#values_at` cuando quieras obtener muchos valores consecutivamente del Hash.
+
+  ```ruby
+  # mal
+  email = data['email']
+  username = data['nickname']
+
+  # bien
+  email, username = data.values_at('email', 'nickname')
+  ```
+
+* Confía en el hecho de que desde Ruby 1.9 los hashes están ordenados.
 * Nunca modifiques una colección mientras la estés recorriendo.
+
+* <a name="accessing-elements-directly"></a>
+  Cuando accedas a los elementos de una Coleción, evita el acceso directo
+  usando `[n]`, para esto puedes usar una forma alternativa de lectura
+  Esto puede salvarte de estar llamando `[]` sobre un valor `nil`.
+
+  ```ruby
+  # mal
+  Regexp.last_match[1]
+
+  # bien
+  Regexp.last_match(1)
+  ```
+
+* <a name="provide-alternate-accessor-to-collections"></a>
+  Si provees una acceso a una coleccion, provee tambien una forma alternativa
+  se salvar a los usuarios de obtener un `ǹil` antes de accesar al elemento en la Colección
+
+  ```ruby
+  # mal
+  def awesome_things
+    @awesome_things
+  end
+
+  # bien
+  def awesome_things(index = nil)
+    if index && @awesome_things
+      @awesome_things[index]
+    else
+      @awesome_things
+    end
+  end
+  ```
 
 ## Strings
 
