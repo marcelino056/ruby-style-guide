@@ -3315,6 +3315,16 @@ propia lógica.
     # bien
     sarcasm = 'I "like" it.'
     ```
+* <a name="no-to-s"></a>
+  No uses `Object#to_s` para interpolar objectos. Esa Función se llama automaticamente.
+
+  ```ruby
+  # mal
+  message = "This is the #{result.to_s}."
+
+  # bien
+  message = "This is the #{result}."
+  ```
 
 * No uses el caracter literal de sintaxis `?x`. Desde Ruby 1.0 esto
   se hizo redundante - `?x` se interpreta como `'x'` (un string con
