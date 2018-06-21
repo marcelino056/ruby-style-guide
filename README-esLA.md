@@ -84,6 +84,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
 * [Clases](#clases-y-m%C3%B3dulos)
 * [Excepciones](#excepciones)
 * [Colecciones](#colecciones)
+* [Números](#numeros)
 * [Strings](#strings)
 * [Expresiones Regulares](#expresiones-regulares)
 * [Porcentajes Literales](#porcentajes-literales)
@@ -3218,7 +3219,7 @@ propia lógica.
 
 * <a name="provide-alternate-accessor-to-collections"></a>
   Si provees una acceso a una coleccion, provee tambien una forma alternativa
-  se salvar a los usuarios de obtener un `ǹil` antes de accesar al elemento en la Colección
+  se salvar a los usuarios de obtener un `nil` antes de accesar al elemento en la Colección
 
   ```ruby
   # mal
@@ -3235,6 +3236,37 @@ propia lógica.
     end
   end
   ```
+
+
+## Números
+
+* <a name="integer-type-checking"></a>
+  Usa `Integer` para probar el tipo de un número entero. 
+  desde que `Fixnum` depende de la plataforma, chequeando el valor de la variable 
+  con él dará resultados diferentes dependiendo la arquitectura de la máquin 32-bit o 64-bit.
+
+  ```ruby
+  timestamp = Time.now.to_i
+
+  # mal
+  timestamp.is_a? Fixnum
+  timestamp.is_a? Bignum
+
+  # bien
+  timestamp.is_a? Integer
+  ```
+
+* <a name="random-numbers"></a>
+  Prefiere el uso de Rangos para generar numeros aleatorios.
+  
+  ```ruby
+  # mal
+  rand(6) + 1
+
+  # bien
+  rand(1..6)
+  ```
+
 
 ## Strings
 
