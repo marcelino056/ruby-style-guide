@@ -84,7 +84,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
 * [Clases](#clases-y-m%C3%B3dulos)
 * [Excepciones](#excepciones)
 * [Colecciones](#colecciones)
-* [Números](#numeros)
+* [Números](#números)
 * [Strings](#strings)
 * [Expresiones Regulares](#expresiones-regulares)
 * [Porcentajes Literales](#porcentajes-literales)
@@ -3278,6 +3278,9 @@ propia lógica.
 
     # bien
     email_with_name = "#{user.name} <#{user.email}>"
+
+    # mejor
+    email_with_name = format('%s <%s>', user.name, user.email)
     ```
 
 * Considera el uso de interpolación de string con espacio. Hace que sea más claro
@@ -3296,6 +3299,21 @@ propia lógica.
 
     # bien
     name = 'Bozhidar'
+
+    # bien
+    name = "De'Andre"
+
+    ```
+
+  * Prefiere usar comillas dobles `""` a menos que el String 
+    contenga `"` o caracteres de escape que quieras suprimir.
+
+    ```ruby
+    # mal
+    sarcasm = "I \"like\" it."
+
+    # bien
+    sarcasm = 'I "like" it.'
     ```
 
 * No uses el caracter literal de sintaxis `?x`. Desde Ruby 1.0 esto
