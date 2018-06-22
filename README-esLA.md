@@ -86,6 +86,7 @@ Traducciones de esta guía están disponibles en los siguientes idiomas:
 * [Colecciones](#colecciones)
 * [Números](#números)
 * [Strings](#strings)
+* [Date & Time](#date--time)
 * [Expresiones Regulares](#expresiones-regulares)
 * [Porcentajes Literales](#porcentajes-literales)
 * [Metaprogramación](#metaprogramaci%C3%B3n)
@@ -3398,6 +3399,62 @@ propia lógica.
     END
     #=> "def test\n  some_method\n  other_method\nend\n"
     ```
+
+* <a name="heredoc-delimiters"></a>
+  Usa delimitadores descriptivos para los [Heredoc](https://es.wikipedia.org/wiki/Here_document)
+  Delimitadores correctos pueden agregar informacion valiosa acerca del contenido.
+  Algunos Editores de Texto son capaces de reconocer los delimitadores y destacar el contenido 
+  usando el "Highlight" correspondiente
+
+  ```ruby
+  # mal
+  code = <<~END
+    def foo
+      bar
+    end
+  END
+
+  # bien
+  code = <<~RUBY
+    def foo
+      bar
+    end
+  RUBY
+
+  # bien
+  code = <<~SUMMARY
+    An imposing black structure provides a connection between the past and
+    the future in this enigmatic adaptation of a short story by revered
+    sci-fi author Arthur C. Clarke.
+  SUMMARY
+  ```
+
+## Date & Time
+
+* <a name="time-now"></a>
+  Prefiere `Time.now` por sobre `Time.new` cuando tratas de obtener el tiempo actual del sistema.
+
+* <a name="no-datetime"></a>
+  No uses `DateTime` a menos que necesites crear un Calendario Historico
+  y si lo haces especifica explicitamente en el argumento el `inicio` para
+  dejar clara tus intenciones.
+
+  ```ruby
+  # mal - uso de 'DateTime' para el tiempo actual del sistema
+  DateTime.now
+
+  # bien - uso de 'Time' para el tiempo actual del sistema
+  Time.now
+
+  # mal - uso de 'DateTime' para una fecha actual
+  DateTime.iso8601('2016-06-29')
+
+  # bien - uso 'Date' para una fecha actual
+  Date.iso8601('2016-06-29')
+
+  # bien - uso de 'DateTime' con un argumento extra para representar una fecha histórica
+  DateTime.iso8601('1751-04-23', Date::ENGLAND)
+  ```
 
 ## Expresiones Regulares
 
