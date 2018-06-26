@@ -3596,7 +3596,7 @@ propia lógica.
     %r(^/blog/2011/(.*)$)
     ```
 
-* Evita el uso de `%x`, excepto que estés invocando un comando con comillas contrarias (que es bastante inusual).
+* Evita el uso de `%x`, excepto que ya estés invocando un comando con comillas contrarias (que es bastante inusual).
 
     ```ruby
     # mal
@@ -3610,21 +3610,39 @@ propia lógica.
 * Evita el uso de `%s`. Parece que la comunidad decidió que `:"some string"`
   es la forma preferida para crear un símbolo con espacios dentro.
 
-* Prefiere `()` como delimitadores para todos los literales `%`, excepto
-  para `%r`. Ya que las llaves aparecen seguido dentro de las expresiones
-  regulares en varios escenarios, va a ser menos común que aparezca el
-  caracter `{` y va a ser una mejor elección para usar como delimitador,
-  dependiendo en el contenido de la regexp.
 
-    ```ruby
-    # mal
-    %w[one two three]
-    %q{"Test's king!", John said.}
+* <a name="percent-literal-braces"></a>
+  Usa los paréntesis que sean mas apropiados dependiento del tipo de "Porcentaje Literal" que desees usar.
 
-    # bien
-    %w(one two three)
-    %q("Test's king!", John said.)
-    ```
+  - `()` para String literales(`%q`, `%Q`).
+  - `[]` para Array literales(`%w`, `%i`, `%W`, `%I`) al igual que los Array normales.
+  - `{}` Para regexp literales(`%r`) a menos que la expresión regular contenga paréntesis de llave `{}`. 
+         La idea es usar un caracter poco común en la expresión regular. (Por ejemplo `||`)
+  - `()` Para todos los otros literales (por ejemplo: `%s`, `%x`)
+
+  ```ruby
+  # mal
+  %q{"Test's king!", John said.}
+
+  # bien
+  %q("Test's king!", John said.)
+
+  # mal
+  %w(one two three)
+  %i(one two three)
+
+  # bien
+  %w[one two three]
+  %i[one two three]
+
+  # mal
+  %r((\w+)-(\d+))
+  %r{\w{1,2}\d{2,5}}
+
+  # bien
+  %r{(\w+)-(\d+)}
+  %r|\w{1,2}\d{2,5}|
+  
 
 ## Metaprogramación
 
