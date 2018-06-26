@@ -3464,7 +3464,7 @@ propia lógica.
 
 * No uses expresiones regulares si solo necesitás buscar texto plano en un string:
   `string['text']`
-* Para construcciones simples puedas usar regexp directamente a través de un índice de string.
+* Para construcciones simples puedes usar la `regexp` directamente como índice de string.
 
     ```ruby
     match = string[/regexp/]             # get content of matched regexp
@@ -3512,7 +3512,7 @@ propia lógica.
 * Clases de caracteres únicamente tienen caracteres especiales que te deberían importar:
   `^`, `-`, `\`, `]`, por lo que no debes escapar `.` o llaves en `[]`.
 
-* Tené cuidado con `^` y `$`, ya que ellos se igualan con el inicio/final de la línea,
+* Tiene cuidado con `^` y `$`, ya que ellos se igualan con el inicio/final de la línea,
   no el final del string. Si querés igualar el string completo usá: `\A` y `\z` (no
   confundir con `\Z` el cual es el equivalente de `/\n?\z/`).
 
@@ -3537,6 +3537,12 @@ propia lógica.
     ```
 
 * Para cambios complejos se pueden usar `sub`/`gsub` con un bloque o un hash.
+
+  ```ruby
+  words = 'foo bar'
+  words.sub(/f/, 'f' => 'F') # => 'Foo bar'
+  words.gsub(/\w+/) { |word| word.capitalize } # => 'Foo Bar'
+ 
 
 ## Porcentajes Literales
 
