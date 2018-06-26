@@ -3649,7 +3649,7 @@ propia lógica.
 * Evita metaprogramación innecesaria.
 
 * No hagas lío con las clases core cuando estés escribiendo bibliotecas.
-  (No parchees como un mono.)
+  (No uses monkey-patch.)
 
 * La forma de bloque de `class_eval` es preferible en forma de interpolación de string.
   - cuando uses la forma de interpolación de string, siempre usá `__FILE__` y `__LINE__`,
@@ -3661,7 +3661,7 @@ propia lógica.
 
   - `define_method` es mejor que `class_eval{ def ... }`
 
-* Cuando uses `class_eval` (u otro `eval`) con interpolación de string, agregá un bloque de comentario que muestra su apariencia si está interpolada (una práctica que aprendí con el código de Rails):
+* Cuando uses `class_eval` (u otro `eval`) con interpolación de string, agrega un bloque de comentario que muestra su apariencia si está interpolada (una práctica que aprendí con el código de Rails):
 
     ```ruby
     # from activesupport/lib/active_support/core_ext/string/output_safety.rb
@@ -3710,6 +3710,62 @@ propia lógica.
     # best of all, though, would to define_method as each findable attribute is declared
     ```
 
+* <a name="prefer-public-send"></a>
+  Prefiere `public_send` por sobre `send` para no eludir la visibilidad `private`/`protected`.
+
+  ```ruby
+  # Tenemos una organización ActiveModel que incluye Activatable
+  module Activatable
+    extend ActiveSupport::Concern
+
+    included do
+      before_create :create_token
+    end
+
+    private
+
+    def reset_token
+      # some code
+    end
+
+    def create_token
+      # some code
+    end
+
+    def activate!
+      # some code
+    end
+  end
+
+  class Organization < ActiveRecord::Base
+    include Activatable
+  end
+
+  linux_organization = Organization.find(...)
+  # MAL - viola la privacidad
+  linux_organization.send(:reset_token)
+  # Bien - debería arrojar una excepción
+  linux_organization.public_send(:reset_token)
+  ```
+
+* <a name="prefer-__send__"></a>
+  Prefiere `__send__` por sobre `send`, ya que `send` puede superponerse a métodos existentes.
+
+  ```ruby
+  require 'socket'
+
+  u1 = UDPSocket.new
+  u1.bind('127.0.0.1', 4913)
+  u2 = UDPSocket.new
+  u2.connect('127.0.0.1', 4913)
+  # No enviará un mensaje al objeto receptor.
+  # En cambio enviará un mensaje via UDP socket.
+  u2.send :sleep, 0
+  # Si enviará un mensaje al objeto receptor.
+  u2.__send__ ...
+  ```
+
+
 ## Varios
 
 * Escribe código seguro con `ruby -w`.
@@ -3739,7 +3795,6 @@ propia lógica.
 * Evita `alias` cuando `alias_method` hace mejor el trabajo.
 * Usa `OptionParser` para parsear líneas de opciones de comando complejas
 y `ruby -s` para líneas de opciones de comando triviales.
-* Prefiere `Time.now` por sobre `Time.new` cuando estés leyendo la hora del sistema.
 * Escribe código en forma funcional, evitando mutación cuando eso tenga sentido.
 * No mutes argumentos excepto que ese sea el propósito del método.
 * Evita más de tres niveles de anidación de bloques.
