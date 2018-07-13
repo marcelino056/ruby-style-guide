@@ -2174,7 +2174,7 @@ que no utilizar comentarios.
 
 * <a name="magic-comments-first"></a>
   Posiciona un comentario mágico sobre todo el código y la documentacion de un archivo 
-  (exeptuando los [Shebangs](https://es.wikipedia.org/wiki/Shebang), hablaremos de ellos mas adelante).
+  (exceptuando los [Shebangs](https://es.wikipedia.org/wiki/Shebang), hablaremos de ellos mas adelante).
 
   ```ruby
   # mal
