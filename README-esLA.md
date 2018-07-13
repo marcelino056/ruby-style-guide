@@ -1312,7 +1312,7 @@ Nunca uses `::` para la invocación de métodos.
     end
     ```
 
-* Evita usar `self` cuando no es necesario. (Solo se necesita cuando se llama a un accesor de escritura propio.)
+* Evita usar `self` cuando no es necesario. (Solo se necesita cuando se sobreescribe el valor de la variable propia de la clase.)
 
     ```ruby
     # mal
