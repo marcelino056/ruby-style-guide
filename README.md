@@ -597,7 +597,7 @@ Translations of the guide are available in the following languages:
     ```
 
   A discussion on the merits of both alternative styles can be found
-  [here](https://github.com/bbatsov/ruby-style-guide/pull/176).
+  [here](https://github.com/rubocop-hq/ruby-style-guide/pull/176).
 
 * <a name="no-double-indent"></a>
     Align the parameters of a method call if they span more than one
@@ -2503,17 +2503,17 @@ no parameters.
   Place magic comments above all code and documentation in a file (except shebangs, which are discussed next).
 
   ```ruby
-  # good
-  # frozen_string_literal: true
-
-  # Some documentation about Person
-  class Person
-  end
-
   # bad
   # Some documentation about Person
 
   # frozen_string_literal: true
+  class Person
+  end
+
+  # good
+  # frozen_string_literal: true
+
+  # Some documentation about Person
   class Person
   end
   ```
@@ -2523,15 +2523,15 @@ no parameters.
 <sup>[[link](#below-shebang)]</sup>
 
   ```ruby
-  # good
-  #!/usr/bin/env ruby
-  # frozen_string_literal: true
-
-  App.parse(ARGV)
-
   # bad
   # frozen_string_literal: true
   #!/usr/bin/env ruby
+
+  App.parse(ARGV)
+
+  # good
+  #!/usr/bin/env ruby
+  # frozen_string_literal: true
 
   App.parse(ARGV)
   ```
@@ -2541,12 +2541,12 @@ no parameters.
 <sup>[[link](#one-magic-comment-per-line)]</sup>
 
   ```ruby
+  # bad
+  # -*- frozen_string_literal: true; encoding: ascii-8bit -*-
+
   # good
   # frozen_string_literal: true
   # encoding: ascii-8bit
-
-  # bad
-  # -*- frozen_string_literal: true; encoding: ascii-8bit -*-
   ```
 
 * <a name="separate-magic-comments-from-code"></a>
@@ -2554,16 +2554,16 @@ no parameters.
 <sup>[[link](#separate-magic-comments-from-code)]</sup>
 
   ```ruby
-  # good
+  # bad
   # frozen_string_literal: true
-
   # Some documentation for Person
   class Person
     # Some code
   end
 
-  # bad
+  # good
   # frozen_string_literal: true
+
   # Some documentation for Person
   class Person
     # Some code
@@ -3604,7 +3604,7 @@ resource cleanup when possible.
   # bad - if we just use || operator with falsy value we won't get the expected result
   batman[:is_evil] || true # => true
 
-  # good - fetch work correctly with falsy values
+  # good - fetch works correctly with falsy values
   batman.fetch(:is_evil, true) # => false
   ```
 
@@ -3684,7 +3684,7 @@ resource cleanup when possible.
 ## Numbers
 
 * <a name="integer-type-checking"></a>
-  Use `Integer` check type of an integer number. Since `Fixnum` is
+  Use `Integer` to check type of an integer number. Since `Fixnum` is
   platform-dependent, checking against it will return different results on
   32-bit and 64-bit machines.
 <sup>[[link](#integer-type-checking)]</sup>
@@ -3700,18 +3700,18 @@ resource cleanup when possible.
   timestamp.is_a? Integer
   ```
 
-  * <a name="random-numbers"></a>
-    Prefer to use ranges when generating random numbers instead of integers with offsets,
-    since it clearly states your intentions. Imagine simulating a role of a dice:
-  <sup>[[link](#random-numbers)]</sup>
+* <a name="random-numbers"></a>
+  Prefer to use ranges when generating random numbers instead of integers with offsets,
+  since it clearly states your intentions. Imagine simulating a roll of a dice:
+<sup>[[link](#random-numbers)]</sup>
 
-    ```ruby
-    # bad
-    rand(6) + 1
+  ```ruby
+  # bad
+  rand(6) + 1
 
-    # good
-    rand(1..6)
-    ```
+  # good
+  rand(1..6)
+  ```
 
 ## Strings
 
@@ -3856,7 +3856,7 @@ resource cleanup when possible.
   ```
 
 * <a name="dont-abuse-gsub"></a>
-  Don't use `String#gsub` in scenarios in which you can use a faster more specialized alternative.
+  Don't use `String#gsub` in scenarios in which you can use a faster and more specialized alternative.
 <sup>[[link](#dont-abuse-gsub)]</sup>
 
     ```ruby
@@ -3955,7 +3955,7 @@ resource cleanup when possible.
 
 * <a name="no-datetime"></a>
   Don't use `DateTime` unless you need to account for historical calendar
-  reform -- and if you do, explicitly specify the `start` argument to
+  reform—and if you do, explicitly specify the `start` argument to
   clearly state your intentions.
 <sup>[[link](#no-datetime)]</sup>
 
@@ -4255,7 +4255,7 @@ resource cleanup when possible.
 <sup>[[link](#no-method-missing)]</sup>
 
   - Be sure to [also define `respond_to_missing?`](http://blog.marc-andre.ca/2010/11/methodmissing-politely.html)
-  - Only catch methods with a well-defined prefix, such as `find_by_*` -- make your code as assertive as possible.
+  - Only catch methods with a well-defined prefix, such as `find_by_*`—make your code as assertive as possible.
   - Call `super` at the end of your statement
   - Delegate to assertive, non-magical methods:
 
@@ -4286,7 +4286,7 @@ resource cleanup when possible.
 <sup>[[link](#prefer-public-send)]</sup>
 
   ```ruby
-  # We have  an ActiveModel Organization that includes concern Activatable
+  # We have an ActiveModel Organization that includes concern Activatable
   module Activatable
     extend ActiveSupport::Concern
 
@@ -4390,6 +4390,15 @@ resource cleanup when possible.
   Code in a functional way, avoiding mutation when that makes sense.
 <sup>[[link](#functional-code)]</sup>
 
+  ```ruby
+  a = []; [1, 2, 3].each { |i| a << i * 2 }   # bad
+  a = [1, 2, 3].map { |i| i * 2 }             # good
+
+  a = {}; [1, 2, 3].each { |i| a[i] = i * 17 }                # bad
+  a = [1, 2, 3].reduce({}) { |h, i| h[i] = i * 17; h }        # good
+  a = [1, 2, 3].each_with_object({}) { |i, h| h[i] = i * 17 } # good
+  ```
+
 * <a name="no-param-mutations"></a>
   Do not mutate parameters unless that is the purpose of the method.
 <sup>[[link](#no-param-mutations)]</sup>
@@ -4442,13 +4451,11 @@ Feel free to open tickets or send pull requests with improvements. Thanks in
 advance for your help!
 
 You can also support the project (and RuboCop) with financial
-contributions via [Gratipay](https://gratipay.com/~bbatsov/).
-
-[![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png)](https://gratipay.com/~bbatsov/)
+contributions via [Patreon](https://www.patreon.com/bbatsov).
 
 ## How to Contribute?
 
-It's easy, just follow the [contribution guidelines](https://github.com/bbatsov/ruby-style-guide/blob/master/CONTRIBUTING.md).
+It's easy, just follow the [contribution guidelines](https://github.com/rubocop-hq/ruby-style-guide/blob/master/CONTRIBUTING.md).
 
 # License
 
@@ -4467,9 +4474,9 @@ Cheers,<br>
 [Bozhidar](https://twitter.com/bbatsov)
 
 [PEP-8]: https://www.python.org/dev/peps/pep-0008/
-[rails-style-guide]: https://github.com/bbatsov/rails-style-guide
+[rails-style-guide]: https://github.com/rubocop-hq/rails-style-guide
 [pickaxe]: https://pragprog.com/book/ruby4/programming-ruby-1-9-2-0
 [trpl]: http://www.amazon.com/Ruby-Programming-Language-David-Flanagan/dp/0596516177
 [Pandoc]: http://pandoc.org/
-[RuboCop]: https://github.com/bbatsov/rubocop
+[RuboCop]: https://github.com/rubocop-hq/rubocop
 [rdoc]: http://rdoc.sourceforge.net/doc/
